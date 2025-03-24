@@ -37,7 +37,7 @@
   --font-family: 'Inter', 'Roboto', sans-serif;
 
   /* Sizing */
-  --radius: 8px;
+  --radius: 5px;
   --transition-speed: 0.3s;
 
   /* Spacing */
@@ -47,6 +47,9 @@
   --space-4: 16px;
   --space-5: 20px;
   --space-6: 24px;
+
+  /* Box shadow */
+  --box-shadow: 0 0 0 2px rgba(3, 169, 244, 0.2);
 }
 
 /* ===== Base Styles ===== */
@@ -293,3 +296,516 @@ body {
 
 /* ===== Transition ===== */
 .transition { transition: all var(--transition-speed) ease-in-out; }
+
+/* ===== Input Base ===== */
+.input {
+  padding: var(--space-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-family: var(--font-family);
+  transition: border-color var(--transition-speed) ease-in-out, box-shadow var(--transition-speed) ease-in-out;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+}
+
+.input-primary:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(3, 169, 244, 0.2);
+}
+
+.input-secondary:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 2px rgba(0, 150, 136, 0.2);
+}
+
+.input-error {
+  border-color: var(--error);
+}
+
+.input-error:focus {
+  border-color: var(--error-dark);
+  box-shadow: 0 0 0 2px rgba(255, 87, 34, 0.2);
+}
+
+.input-disabled {
+  background-color: var(--gray-light);
+  border-color: var(--border);
+  color: var(--gray);
+  cursor: not-allowed;
+}
+
+.input-disabled::placeholder {
+  color: var(--gray);
+}
+
+.input-disabled:focus {
+  border-color: var(--border);
+  box-shadow: none;
+}
+
+.input-group {
+  display: flex;
+  width: 100%;
+}
+
+.input-group .input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  flex: 1;
+}
+
+.input-group .btn,
+.input-group .btn-outline {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  white-space: nowrap;
+}
+
+.input-icon {
+  position: relative;
+  width: 100%;
+}
+
+.input-icon .icon-left {
+  position: absolute;
+  left: var(--space-2);
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--gray);
+  pointer-events: none;
+}
+
+.input-icon .input {
+  padding-top: 7px;
+  padding-left: calc(var(--space-2) * 3.5);
+}
+
+.numero-control {
+  display: flex;
+  width: 100%;
+}
+
+.numero-control .btn-icon-only:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
+}
+
+.numero-control input {
+  border-left: none;
+  border-right: none;
+  border-radius: 0;
+  text-align: center;
+  flex: 1;
+}
+
+.input-primary:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(3, 169, 244, 0.2);
+}
+
+.input-secondary:focus {
+  border-color: var(--secondary);
+  box-shadow: 0 0 0 2px rgba(0, 150, 136, 0.2);
+}
+
+.numero-control .btn-icon-only:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* ===== Checkbox Base ===== */
+
+.checkbox-hidden {
+  display: none;
+}
+
+.checkbox-icon {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-icon.primary {
+  color: var(--primary);
+}
+
+.checkbox-icon.secondary {
+  color: var(--secondary);
+}
+
+.checkbox-icon .checked {
+  display: none;
+}
+
+.checkbox-hidden:checked ~ .unchecked {
+  display: none;
+}
+
+.checkbox-hidden:checked ~ .checked {
+  display: inline;
+}
+
+.checkbox-icon .primary {
+  color: var(--primary);
+}
+
+.checkbox-icon .secondary {
+  color: var(--secondary);
+}
+
+.toggle-hidden {
+  display: none;
+}
+
+.toggle-icon {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.toggle-icon .icon {
+  font-size: 2rem;
+  transition: color var(--transition-speed) ease-in-out;
+}
+
+.toggle-icon .unchecked {
+  color: var(--gray);
+}
+
+.toggle-hidden:checked ~ .checked {
+  color: var(--primary);
+}
+
+.toggle-icon .checked {
+  display: none;
+}
+
+.toggle-hidden:checked ~ .unchecked {
+  display: none;
+}
+
+.toggle-hidden:checked ~ .checked {
+  display: inline;
+}
+
+/* ===== Radio Button Base ===== */
+
+.radio-hidden {
+  display: none;
+}
+
+.radio-icon {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2); /* espacio entre ícono y texto */
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: var(--space-2); /* separa radios verticalmente */
+}
+
+.radio-icon .checked {
+  display: none;
+}
+
+.radio-hidden:checked ~ .unchecked {
+  display: none;
+}
+
+.radio-hidden:checked ~ .checked {
+  display: inline;
+}
+
+
+/* ===== Dropdown Base ===== */
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  min-width: 160px;
+}
+
+.dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  justify-content: space-between;
+  width: 250px; /* ancho fijo */
+}
+
+.dropdown-menu {
+  list-style: none; /* sin puntos */
+  padding: 5px;
+  margin: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  min-width: 160px;
+  display: none;
+  z-index: 1000;
+  margin-top: var(--space-1);
+  overflow: hidden;
+  width: 100%; /* se adapta al ancho del botón */
+}
+
+.dropdown.open .dropdown-menu {
+  display: block;
+}
+
+.dropdown-item {
+  padding: var(--space-2);
+  cursor: pointer;
+  align-items: center; /* asegura alineación vertical */
+  gap: var(--space-2);
+  border-radius: var(--radius);
+  transition: background-color var(--transition-speed) ease-in-out;
+}
+
+.dropdown-item img {
+  display: inline-block;
+  vertical-align: middle;
+  object-fit: contain;
+}
+
+.dropdown-item:hover {
+  background-color: var(--primary-bg);
+  color: var(--primary-dark);
+}
+
+.dropdown-secondary .dropdown-item:hover {
+  background-color: var(--secondary-bg);
+  color: var(--secondary-dark);
+}
+
+/* Iconos toggle */
+.icon-up { display: none; }
+.dropdown.open .icon-down { display: none; }
+.dropdown.open .icon-up { display: inline; }
+
+/* ===== Radio Button Base ===== */
+
+.form-group {
+  margin-bottom: var(--space-4); /* espaciado entre grupos */
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2); /* espacio entre label y input */
+}
+
+.form-label {
+  font-weight: 500;
+  font-size: 0.8rem;
+  color: var(--black);
+}
+
+.form-error {
+  color: var(--error);
+  font-size: 0.7rem;
+}
+
+.form-group-horizontal {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.form-group-horizontal label {
+  width: 150px;
+  text-align: right;
+  margin-bottom: 0;
+}
+
+.form-group-horizontal .input,
+.form-group-horizontal .input-group,
+.form-group-horizontal .input-icon {
+  flex: 1;
+  width: auto;
+}
+
+.textarea-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.contador-caracteres {
+  position: absolute;
+  bottom: var(--space-1);
+  right: var(--space-1);
+  font-size: 0.75rem;
+  color: var(--gray);
+  pointer-events: none;
+}
+
+/* ===== Badges ===== */
+.badge {
+  display: inline-block;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1;
+  border-radius: var(--radius);
+  background-color: var(--primary);
+  color: var(--white);
+  vertical-align: middle;
+  text-align: center;
+  min-width: 20px;
+}
+
+.badge .icon.mr {
+  margin-right: 5px; /* Espacio entre icono y texto */
+  vertical-align: middle;
+}
+
+.badge .icon.ml {
+  margin-left: 5px; /* Espacio entre icono y texto */
+  vertical-align: middle;
+}
+
+/* Tamaño más redondo (contador) */
+.badge-circle {
+  border-radius: 50%;
+  padding: 4px;
+  min-width: 24px;
+  height: 24px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ===== Pills ===== */
+.pill {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 999px;
+  background-color: var(--gray-light);
+  color: var(--black);
+}
+
+/* Colores */
+.badge-primary, .pill-primary { background-color: var(--primary); color: var(--white); }
+.badge-secondary, .pill-secondary { background-color: var(--secondary); color: var(--white); }
+.badge-warning, .pill-warning { background-color: var(--warning); color: var(--black); }
+.badge-error, .pill-error { background-color: var(--error); color: var(--white); }
+.badge-gray, .pill-gray { background-color: var(--gray); color: var(--white); }
+
+/* ===== Outline Base ===== */
+.badge-outline, .pill-outline {
+  background-color: transparent;
+  border: 1px solid;
+}
+
+/* ===== Badge Outline ===== */
+.badge-outline.badge-primary { border-color: var(--primary); color: var(--primary); }
+.badge-outline.badge-secondary { border-color: var(--secondary); color: var(--secondary); }
+.badge-outline.badge-warning { border-color: var(--warning); color: var(--warning); }
+.badge-outline.badge-error { border-color: var(--error); color: var(--error); }
+.badge-outline.badge-gray { border-color: var(--gray); color: var(--gray); }
+
+/* ===== Pill Outline ===== */
+.pill-outline.pill-primary { border-color: var(--primary); color: var(--primary); }
+.pill-outline.pill-secondary { border-color: var(--secondary); color: var(--secondary); }
+.pill-outline.pill-warning { border-color: var(--warning); color: var(--warning); }
+.pill-outline.pill-error { border-color: var(--error); color: var(--error); }
+.pill-outline.pill-gray { border-color: var(--gray); color: var(--gray); }
+
+/* ===== Spinner ===== */
+
+.spinner {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  background-image: url('/assets/loading.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+/* Centrado absoluto en pantalla */
+.spinner-center {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+/* Spinner overlay (fondo semitransparente) */
+.spinner-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255,255,255,0.8);
+  z-index: 9998;
+}
+
+/* ===== Snackbar Base ===== */
+.snackbar {
+  justify-content: space-between; /* Espacio entre texto e ícono de cerrar */
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%) translateY(100%);
+  background-color: var(--primary);
+  color: var(--white);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.875rem;
+  opacity: 0;
+  transition: transform var(--transition-speed) ease-in-out, opacity var(--transition-speed) ease-in-out;
+  z-index: 9999;
+  max-width: 90%;
+  min-width: 200px;
+}
+
+/* Visible state */
+.snackbar.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Posiciones */
+.snackbar-bottom {
+  bottom: var(--space-4);
+}
+
+.snackbar-center {
+  top: 50%;
+  transform: translateX(-50%) translateY(50%);
+}
+
+.snackbar-center.show {
+  transform: translateX(-50%) translateY(-50%);
+}
+
+/* Icono de cerrar */
+.snackbar .dismiss-btn {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px;
+}
+
+/* Colores extra */
+.snackbar.error { background-color: var(--error); }
+.snackbar.secondary { background-color: var(--secondary); }
