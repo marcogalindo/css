@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Componentes</title>
+    <link rel="stylesheet" href="/styles/index.css">
+</head>
+<body>
+    <h3 class="p-2">Botones Solidos</h3>
+    <div class="grid grid-cols-4 grid-gap-1 p-2">
+        <button class="btn btn-primary">Primary</button>
+        <button class="btn btn-secondary">Secondary</button>
+        <button class="btn btn-warning">Warning</button>
+        <button class="btn btn-error">Error</button>
+    </div>
+    <h3 class="p-2">Botones outlined</h3>
+    <div class="grid grid-cols-4 grid-gap-1 p-2">
+        <button class="btn-outline btn-primary-outline">Primary</button>
+        <button class="btn-outline btn-secondary-outline">Secondary</button>
+        <button class="btn-outline btn-warning-outline">Warning</button>
+        <button class="btn-outline btn-error-outline">Error</button>
+    </div>
+    <h3 class="p-2">Botones distintos tamaños</h3>
+    <div class="grid grid-cols-2 grid-gap-1 p-2">
+        <button class="btn btn-primary btn-sm">Primary</button>
+        <button class="btn-outline btn-secondary-outline btn-lg">Secondary</button>
+    </div>
+    <div class="p-2">
+        <button class="btn-outline btn-error-outline btn-full">Error</button>
+    </div>
+    <h3 class="p-2">Botones con iconos</h3>
+    <div class="p-2">
+        <button class="btn btn-primary btn-icon">
+            <i class="fi fi-rs-check icon"></i> Guardar
+        </button>
+        <button class="btn-secondary-outline btn-icon-only">
+            <i class="fi fi-ss-home icon"></i>
+        </button>
+        <button class="btn-primary-outline btn-icon-only">
+            <i class="fi fi-ss-disk icon"></i>
+        </button>
+        <button class="btn-error-outline btn-icon-only">
+            <i class="fi fi-ss-trash icon"></i>
+        </button>
+    </div>
+    <h3 class="p-2">Barra de herramientas</h3>
+    <div class="p-2">
+        <div class="toolbar">
+            <button class="btn-icon-only">
+                <i class="fi fi-rs-edit icon"></i>
+            </button>
+            <button class="btn-icon-only">
+                <i class="fi fi-ss-plus icon"></i>
+            </button>
+            <button class="btn-icon-only">
+                <i class="fi fi-rs-trash icon"></i>
+            </button>
+            <button class="btn-icon-only">
+                <i class="fi fi-ss-ban icon"></i>
+            </button>     
+          </div>
+    </div>
+    <h3 class="p-2">Inputs</h3>
+    <div class="p-2">
+        <input type="text" class="input input-primary" placeholder="Escribe algo...">
+    </div>
+    <div class="p-2">
+        <input type="password" class="input input-secondary" placeholder="Ingresa tu contraseña">
+    </div>
+    <div class="p-2">
+        <input type="email" class="input input-secondary" placeholder="Ingresa tu correo">
+    </div>
+    <div class="p-2">
+        <input type="phone" class="input input-disabled" placeholder="Ingresa tu telefono">
+    </div>
+    <div class="p-2">
+        <textarea name="" id="" class="input input-error" cols="50" rows="10" placeholder="Escribe algo..."></textarea>
+    </div>
+    <div class="p-2">
+        <div class="form-group">
+            <label for="comentario">Comentario</label>
+            <div class="textarea-wrapper">
+              <textarea id="comentario" class="input input-primary textarea-conteo" maxlength="200" rows="4" placeholder="Escribe tu comentario..."></textarea>
+              <div class="contador-caracteres">0 / 200</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="comentario">Comentario</label>
+            <div class="textarea-wrapper">
+              <textarea id="comentario" class="input input-primary textarea-conteo" maxlength="100" rows="4" placeholder="Escribe tu comentario..."></textarea>
+              <div class="contador-caracteres">0 / 100</div>
+            </div>
+        </div>
+    </div>
+    <div class="p-2">
+        <div class="input-group">
+            <input type="text" class="input input-primary" placeholder="Buscar...">
+            <button class="btn btn-primary">Buscar</button>
+        </div>
+    </div>
+    <div class="p-2">
+        <div class="input-group">
+            <input type="text" class="input input-primary" placeholder="Buscar...">
+            <button class="btn-outline btn-primary-outline">Buscar</button>
+        </div>
+    </div>
+    <div class="p-2">
+        <div class="input-group">
+            <input type="text" class="input input-primary" placeholder="Buscar...">
+            <button class="btn-outline btn-primary-outline btn-icon-only" aria-label="Buscar">
+              <i class="fi fi-rs-search icon"></i>
+            </button>
+        </div>
+    </div>
+    <div class="p-2">
+        <div class="input-group">
+            <input type="text" class="input input-primary" placeholder="Buscar...">
+            <button class="btn btn-primary" aria-label="Buscar">
+              <i class="fi fi-rs-search icon"></i>
+            </button>
+        </div>
+    </div>
+    <div class="p-2">
+        <div class="input-icon">
+            <i class="fi fi-rs-search icon icon-left"></i>
+            <input type="text" class="input input-primary" placeholder="Fecha">
+        </div>
+    </div>
+    <h3 class="p-2">Checkbox</h3>
+    <div class="p-2">
+        <input type="checkbox">Opcion
+    </div>
+    <div class="p-2">
+        <label class="checkbox-icon primary">
+            <input type="checkbox" class="checkbox-hidden">
+            <i class="fi fi-rs-square primary icon unchecked"></i>
+            <i class="fi fi-ss-checkbox icon primary checked"></i>
+            Opción
+        </label>
+    </div>
+    <div class="p-2">
+        <label class="checkbox-icon secondary">
+            <input type="checkbox" class="checkbox-hidden">
+            <i class="fi fi-rs-square secondary icon unchecked"></i>
+            <i class="fi fi-ss-checkbox icon secondary checked"></i>
+            Opción
+        </label>
+    </div>
+    <div class="p-2">
+        <label class="toggle-icon">
+            <input type="checkbox" class="toggle-hidden">
+            <i class="fi fi-ss-toggle-off icon unchecked text-md"></i>
+            <i class="fi fi-ss-toggle-on icon checked text-md"></i>
+        </label>
+    </div>
+    <h3 class="p-2">Dropdown</h3>
+    <div class="p-2">
+        <select name="" id="" class="input">
+            <option value="">OPcion 1</option>
+            <option value="">OPcion 2</option>
+        </select>
+    </div>
+    <div class="p-2">
+        <div class="dropdown" id="campoPais">
+            <input type="hidden" name="pais" value="">
+            <button class="btn-outline btn-primary-outline dropdown-toggle text-sm text-black">
+                Seleccionar país
+                <i class="fi fi-rs-caret-down icon icon-down"></i>
+                <i class="fi fi-rs-caret-up icon icon-up"></i>
+            </button>
+            <ul class="dropdown-menu">
+                <li class="dropdown-item text-sm" data-value="mx">
+                    <img src="/assets/mexico.png" width="16" height="16" alt="">
+                    México
+                </li>
+                <li class="dropdown-item text-sm" data-value="us">
+                    <i class="fi fi-ss-pound"></i>
+                    Pounds
+                </li>
+                <li class="dropdown-item text-sm" data-value="ur">URSS</li>
+                <li class="dropdown-item text-sm" data-value="es">España</li>
+            </ul>
+        </div>
+        <button type="button" onclick="obtenerValorCampo('campoPais')" class="btn btn-primary">Probar</button>                 
+    </div>
+    <div class="p-2">
+        <div class="dropdown dropdown-secondary" id="campoEstado">
+            <input type="hidden" name="pais" value="">
+            <button class="btn-outline btn-secondary-outline dropdown-toggle text-sm text-black">
+              Seleccionar país
+              <i class="fi fi-rs-caret-down icon icon-down"></i>
+              <i class="fi fi-rs-caret-up icon icon-up"></i>
+            </button>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item text-sm" data-value="cdmx">1️⃣ CDMX</li>
+              <li class="dropdown-item text-sm" data-value="jal">2️⃣ Jalisco</li>
+              <li class="dropdown-item text-sm" data-value="pue">3️⃣ Puebla</li>
+              <li class="dropdown-item text-sm" data-value="zac">4️⃣ Zacatecas</li>
+            </ul>
+        </div>
+        <button type="button" onclick="obtenerValorCampo('campoEstado')" class="btn-outline btn-secondary-outline">Probar</button>                 
+    </div>
+    <h3 class="p-2">Dropdown multi</h3>
+    <div class="p-2">
+        <div class="dropdown multi-select" id="campoServicios">
+            <input type="hidden" name="servicios" value="">
+            <button class="btn-outline btn-primary-outline dropdown-toggle text-sm text-black">
+                Selecciona servicios
+                <i class="fi fi-rs-caret-down icon icon-down"></i>
+                <i class="fi fi-rs-caret-up icon icon-up"></i>
+            </button>
+            <ul class="dropdown-menu">
+                <li class="dropdown-item text-sm">
+                    <label class="checkbox-icon">
+                        <input type="checkbox" class="checkbox-hidden" data-value="internet">
+                        <i class="fi fi-rs-square icon unchecked"></i>
+                        <i class="fi fi-rs-checkbox icon checked"></i>
+                        Internet
+                    </label>
+                </li>
+                <li class="dropdown-item text-sm">
+                    <label class="checkbox-icon">
+                        <input type="checkbox" class="checkbox-hidden" data-value="tv">
+                        <i class="fi fi-rs-square icon unchecked"></i>
+                        <i class="fi fi-rs-checkbox icon checked"></i>
+                        TV Cable
+                    </label>
+                </li>
+                <li class="dropdown-item text-sm">
+                    <label class="checkbox-icon">
+                        <input type="checkbox" class="checkbox-hidden" data-value="telefono">
+                        <i class="fi fi-rs-square icon unchecked"></i>
+                        <i class="fi fi-rs-checkbox icon checked"></i>
+                        Teléfono
+                    </label>
+                </li>
+            </ul>
+        </div>
+        <button type="button" onclick="obtenerValorCampo('campoServicios')" class="btn-outline btn-secondary-outline">Probar</button>
+    </div>
+    <h3 class="p-2">Radio buttons</h3>
+    <div class="p-2">
+        <label class="radio-icon">
+            <input type="radio" name="opcion" class="radio-hidden" checked value="a">
+            <i class="fi fi-rs-circle icon unchecked"></i>
+            <i class="fi fi-rs-dot-circle icon checked"></i>
+            Opción A
+          </label>
+          
+          <label class="radio-icon">
+            <input type="radio" name="opcion" class="radio-hidden" value="b">
+            <i class="fi fi-rs-circle icon unchecked"></i>
+            <i class="fi fi-rs-dot-circle icon checked"></i>
+            Opción B
+          </label>          
+    </div>
+    <h3 class="p-2">Input number</h3>
+    <div class="p-2">
+        <div class="p-2">
+            <div class="input-group numero-control" id="inputCantidad">
+              <button class="btn-outline btn-secondary-outline btn-icon-only" data-action="decrementar">
+                <i class="fi fi-ss-minus icon"></i>
+              </button>
+              <input type="number" class="input input-secondary" value="1" min="1" max="10">
+              <button class="btn-outline btn-secondary-outline btn-icon-only" data-action="incrementar">
+                <i class="fi fi-ss-plus icon"></i>
+              </button>
+            </div>
+          </div>
+    </div>
+    <div class="p-2">
+        <div class="number-input-fancy" id="campoCantidad">
+            <button class="btn-icon-only minus" aria-label="Menos">
+                <i class="fi fi-ss-angle-left icon"></i>
+            </button>
+            <input type="text" readonly class="input input-primary number-box" value="18" min="18" max="25" name="cantidad"/>
+            <button class="btn-icon-only plus" aria-label="Más">
+                <i class="fi fi-ss-angle-right icon"></i>
+            </button>
+        </div>
+    </div>
+    <h3 class="p-2">Form groups</h3>
+    <div class="p-2">
+        <div class="form-group">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input type="email" id="email" class="input input-primary" placeholder="correo@ejemplo.com">
+        </div>
+        <div class="form-group">
+            <label for="email" class="form-label">Correo electrónico</label>
+            <input type="email" id="email" class="input input-error" placeholder="correo@ejemplo.com">
+            <small class="form-error">Este campo es obligatorio</small>
+        </div>
+        <div class="form-group form-group-horizontal">
+            <label for="busqueda">Buscar</label>
+            <div class="input-group">
+              <input type="text" id="busqueda" class="input input-secondary" placeholder="Escribe algo">
+              <button class="btn-outline btn-secondary-outline">Buscar</button>
+            </div>
+          </div>
+    </div>
+    <h3 class="p-2">Badges / Pills</h3>
+    <div class="p-2">
+        <span class="badge badge-primary">4</span>
+        <span class="badge badge-primary">200</span>
+        <span class="badge badge-primary">
+            <span class="tooltip-container">
+                <i class="fi fi-rs-envelope icon mr"></i>
+                <span class="tooltip-text tooltip-top">Alerta que aparece cuando sucede algun evento</span>
+            </span>
+            200
+        </span>
+        <span class="badge badge-error">
+            Voz
+            <i class="fi fi-ss-circle-xmark icon ml"></i>
+        </span>
+        <span class="badge badge-warning badge-circle">!</span>
+        <span class="pill pill-secondary">Activo</span>
+        <span class="pill pill-error">Error</span>
+    </div>
+    <div class="p-2">
+        <span class="badge badge-outline badge-primary">4</span>
+        <span class="badge badge-outline badge-warning badge-circle">!</span>
+        <span class="pill pill-outline pill-secondary">Activo</span>
+        <span class="pill pill-outline pill-secondary">Estatus activo</span>
+        <span class="pill pill-outline pill-error">Error</span>
+      </div>
+      <div class="p-2">
+        <span class="badge badge-error badge-circle">
+            <i class="fi fi-ss-light-emergency-on"></i>
+        </span>
+    </div>
+    <h3 class="p-2">
+        Snackbar
+        <span class="tooltip-container">
+            <i class="fi fi-ss-info icon"></i>
+            <span class="tooltip-text tooltip-right">Alerta que aparece cuando sucede algun evento</span>
+        </span>
+    </h3>
+    <div class="p-2">
+        <div class="snackbar snackbar-bottom" id="miSnackbar">
+            <i class="fi fi-ss-info icon"></i>
+            <span>El elemento se creo correctamente, espere un momento mientras actualizamos todo.</span>
+            <button class="dismiss-btn">
+              <i class="fi fi-rs-cross-small icon"></i>
+            </button>
+        </div>
+        <button class="btn btn-primary" onclick="mostrarSnackbar('miSnackbar')">Mostrar Snackbar</button>
+    </div>
+    <h3 class="p-2">Tags/Chips</h3>
+    <div class="p-2">
+        <span class="tag tag-primary">#Marketing</span>
+        <span class="tag tag-secondary">#Ventas</span>
+        <span class="tag tag-warning">#Pendiente</span>
+        <span class="tag tag-error">#Urgente</span>
+        <span class="tag tag-outline">+ Agregar</span>
+    </div>
+    <div class="p-2">
+        <div class="icon-list">
+            <i class="fi fi-brands-whatsapp icon-muted"></i>
+            <i class="fi fi-brands-facebook-messenger icon-muted"></i>
+            <i class="fi fi-ss-globe icon-muted"></i>
+            <i class="fi fi-brands-telegram icon-muted"></i>
+            <i class="fi fi-rs-life-ring icon-muted"></i>
+            <i class="fi fi-rs-api icon-muted"></i>
+        </div>
+    </div>
+    <h3 class="p-2">Cards</h3>
+    <div class="p-2 row">
+        <div class="card card-quarter">
+            <div class="card-header">
+                <h3 class="text-md m-0">Título de la tarjeta</h3>
+            </div>
+            <div class="card-body">
+                <p class="text-sm">Contenido principal o descripción corta de lo que representa la tarjeta.</p>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary">Acción</button>
+                <button class="btn-outline btn-secondary-outline">Cancelar</button>
+            </div>
+        </div>
+        <div class="card card-quarter">
+            <div class="card-header">
+                <h3 class="text-md m-0">Título de la tarjeta</h3>
+            </div>
+            <div class="card-body">
+                <p class="text-sm">Contenido principal o descripción corta de lo que representa la tarjeta.</p>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary">Acción</button>
+                <button class="btn-outline btn-secondary-outline">Cancelar</button>
+            </div>
+        </div>
+        <div class="card card-quarter">
+            <div class="card-header">
+                <h3 class="text-md m-0">Título de la tarjeta</h3>
+            </div>
+            <div class="card-body">
+                <p class="text-sm">Contenido principal o descripción corta de lo que representa la tarjeta.</p>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary">Acción</button>
+                <button class="btn-outline btn-secondary-outline">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <div class="p-2 row">
+        <div class="card card-half">
+            <div class="card-header">
+                <h3 class="text-md m-0 flex-between">
+                    Título de la tarjeta
+                    <i class="fi fi-ss-menu-dots-vertical icon"></i>
+                </h3>
+            </div>
+            <div class="card-body">
+                <h3 class="p-2">
+                    Información personal
+                    <span class="tooltip-container">
+                        <i class="fi fi-ss-info icon"></i>
+                        <span class="tooltip-text tooltip-top">Informacion general necesaria para continuar con el proceso</span>
+                    </span>
+                </h3>
+                <div class="row p-2">
+                    <div class="form-group col-6">
+                        <label for="nombre" class="form-label">Nombre(s)</label>
+                        <input type="text" id="nombre" class="input input-secondary">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="apellido_p" class="form-label">Apellido paterno</label>
+                        <input type="text" id="apellido_p" class="input input-secondary">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="apellido_m" class="form-label">Apellido materno</label>
+                        <input type="text" id="apellido_m" class="input input-secondary">
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="form-group col-3">
+                        <label for="edad" class="form-label">Edad</label>
+                        <div class="number-input-fancy" id="campoEdad">
+                            <button class="btn-outline btn-secondary-outline btn-icon-only minus" aria-label="Menos">
+                                <i class="fi fi-ss-angle-left icon"></i>
+                            </button>
+                            <input type="text" readonly class="input input-primary number-box" value="18" min="18" max="25" name="edad"/>
+                            <button class="btn-outline btn-secondary-outline btn-icon-only plus" aria-label="Más">
+                                <i class="fi fi-ss-angle-right icon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-group col-9">
+                        <label for="campoEstadoCivil" class="form-label">Estado civil</label>
+                        <div class="dropdown dropdown-secondary" id="campoEstadoCivil">
+                            <input type="hidden" name="pais" value="">
+                            <button class="btn-outline btn-secondary-outline dropdown-toggle text-sm text-black">
+                              Selecciona una opción
+                              <i class="fi fi-rs-caret-down icon icon-down"></i>
+                              <i class="fi fi-rs-caret-up icon icon-up"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                              <li class="dropdown-item text-sm" data-value="soltero">Soltero</li>
+                              <li class="dropdown-item text-sm" data-value="comprometido">Comprometido</li>
+                              <li class="dropdown-item text-sm" data-value="casado">Casado</li>
+                              <li class="dropdown-item text-sm" data-value="viudo">Viudo</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="sexo" class="form-label">Sexo</label>
+                            <div class="radio-group">
+                                <label class="radio-icon">
+                                    <input type="radio" name="sexo" class="radio-hidden" checked value="masculino">
+                                    <i class="fi fi-rs-circle icon unchecked"></i>
+                                    <i class="fi fi-rs-dot-circle icon checked"></i>
+                                    Masculino
+                                </label>
+                                <label class="radio-icon">
+                                    <input type="radio" name="sexo" class="radio-hidden" value="femenino">
+                                    <i class="fi fi-rs-circle icon unchecked"></i>
+                                    <i class="fi fi-rs-dot-circle icon checked"></i>
+                                    Femenino
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="p-2">Dirección</h3>
+                <div class="row p-2">
+                    <div class="form-group col-12">
+                        <label for="address_1" class="form-label">Dirección 1</label>
+                        <input type="text" class="input input-secondary" id="address_1">
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="address_2" class="form-label">Dirección 2</label>
+                        <input type="text" class="input input-secondary" id="address_2">
+                    </div>
+                    <div class="form-group col-6">
+                        <label for="campoPais" class="form-label">País de origen</label>
+                        <div class="dropdown" id="campoPais">
+                            <input type="hidden" name="pais" value="">
+                            <button class="btn-outline btn-secondary-outline dropdown-toggle text-sm text-black">
+                                Seleccionar
+                                <i class="fi fi-rs-caret-down icon icon-down"></i>
+                                <i class="fi fi-rs-caret-up icon icon-up"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item text-sm" data-value="mx">
+                                    <img src="/assets/mexico.png" width="16" height="16" alt="México">
+                                    México
+                                </li>
+                                <li class="dropdown-item text-sm" data-value="us">
+                                    <img src="/assets/us.png" width="16" height="16" alt="Estados Unidos">
+                                    Estados Unidos
+                                </li>
+                                <li class="dropdown-item text-sm" data-value="us">
+                                    <img src="/assets/canada.png" width="16" height="16" alt="Canada">
+                                    Canada
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row p-2">
+                    <div class="form-group col-3">
+                        <label for="cp" class="form-label">Código postal</label>
+                        <input type="number" class="input input-secondary" id="cp" value="0" min="1" max="10000">
+                    </div>
+                    <div class="form-group col-4">
+                        <label for="nacimiento" class="form-label">Fecha de nacimiento</label>
+                        <input type="date" class="input input-secondary" id="nacimiento">
+                    </div>
+                </div>
+                <h3 class="p-2">Servicios</h3>
+                <div class="row p-2">
+                    <div class="form-group col-6">
+                        <label for="campoServicios" class="form-label">¿Que servicios quieres contratar?</label>
+                        <div class="dropdown multi-select" id="campoServicios">
+                            <input type="hidden" name="servicios" value="">
+                            <button class="btn-outline btn-secondary-outline dropdown-toggle text-sm text-black">
+                                Selecciona servicios
+                                <i class="fi fi-rs-caret-down icon icon-down"></i>
+                                <i class="fi fi-rs-caret-up icon icon-up"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item text-sm">
+                                    <label class="checkbox-icon">
+                                        <input type="checkbox" class="checkbox-hidden" data-value="internet">
+                                        <i class="fi fi-rs-square icon unchecked"></i>
+                                        <i class="fi fi-rs-checkbox icon checked"></i>
+                                        Internet
+                                    </label>
+                                </li>
+                                <li class="dropdown-item text-sm">
+                                    <label class="checkbox-icon">
+                                        <input type="checkbox" class="checkbox-hidden" data-value="tv">
+                                        <i class="fi fi-rs-square icon unchecked"></i>
+                                        <i class="fi fi-rs-checkbox icon checked"></i>
+                                        TV Cable
+                                    </label>
+                                </li>
+                                <li class="dropdown-item text-sm">
+                                    <label class="checkbox-icon">
+                                        <input type="checkbox" class="checkbox-hidden" data-value="telefono">
+                                        <i class="fi fi-rs-square icon unchecked"></i>
+                                        <i class="fi fi-rs-checkbox icon checked"></i>
+                                        Teléfono
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="toggle-group">
+                        <label class="toggle-icon">
+                            <input type="checkbox" id="notificaciones" class="toggle-hidden">
+                            <i class="fi fi-ss-toggle-off icon icon-secondary unchecked text-md"></i>
+                            <i class="fi fi-ss-toggle-on icon icon-secondary checked text-md"></i>
+                            <span>Quiero recibir notificaciones</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="toggle-group">
+                        <label class="toggle-icon">
+                            <input type="checkbox" id="avisoprivacidad" class="toggle-hidden">
+                            <i class="fi fi-ss-toggle-off icon icon-secondary unchecked text-md"></i>
+                            <i class="fi fi-ss-toggle-on icon icon-secondary checked text-md"></i>
+                            <span>Acepto el aviso de privacidad</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button id="btnSave" class="btn btn-secondary btn-icon" onclick="mostrarSnackbar('miSnackbar')">
+                    <i class="fi fi-rs-disk icon"></i>
+                    Guardar
+                </button>
+                <button class="btn-outline btn-error-outline">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <div class="p-2 row">
+        <div class="card card-quarter">
+            <div class="card-header">
+                <h3 class="text-md m-0">Título de la tarjeta</h3>
+            </div>
+            <div class="card-image full">
+                <img src="/assets/cardimg2.jpg" alt="Avatar">
+              </div>
+            <div class="card-body">
+                <p class="text-sm">Contenido principal o descripción corta de lo que representa la tarjeta.</p>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-primary">Acción</button>
+                <button class="btn-outline btn-secondary-outline">Cancelar</button>
+            </div>
+        </div>
+        <div class="card card-quarter">
+            <div class="card-header">
+                <div class="flex-between w-full">
+                    <h3 class="text-md text-black m-0">Filtros</h3>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="" class="form-label">Tipo de canal</label>
+                    <div class="dropdown multi-select" id="campoCanales">
+                        <input type="hidden" name="servicios" value="">
+                        <button class="btn-outline btn-secondary-outline dropdown-toggle text-sm text-black">
+                            Selecciona los canales
+                            <i class="fi fi-rs-caret-down icon icon-down"></i>
+                            <i class="fi fi-rs-caret-up icon icon-up"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item text-sm">
+                                <label class="checkbox-icon">
+                                    <input type="checkbox" class="checkbox-hidden" data-value="whatsapp">
+                                    <i class="fi fi-rs-square icon unchecked"></i>
+                                    <i class="fi fi-rs-checkbox icon checked"></i>
+                                    Whatsapp
+                                </label>
+                            </li>
+                            <li class="dropdown-item text-sm">
+                                <label class="checkbox-icon">
+                                    <input type="checkbox" class="checkbox-hidden" data-value="messenger">
+                                    <i class="fi fi-rs-square icon unchecked"></i>
+                                    <i class="fi fi-rs-checkbox icon checked"></i>
+                                    Facebook Messenger
+                                </label>
+                            </li>
+                            <li class="dropdown-item text-sm">
+                                <label class="checkbox-icon">
+                                    <input type="checkbox" class="checkbox-hidden" data-value="webchat">
+                                    <i class="fi fi-rs-square icon unchecked"></i>
+                                    <i class="fi fi-rs-checkbox icon checked"></i>
+                                    Webchat
+                                </label>
+                            </li>
+                            <li class="dropdown-item text-sm">
+                                <label class="checkbox-icon">
+                                    <input type="checkbox" class="checkbox-hidden" data-value="agentassist">
+                                    <i class="fi fi-rs-square icon unchecked"></i>
+                                    <i class="fi fi-rs-checkbox icon checked"></i>
+                                    Agent assist
+                                </label>
+                            </li>
+                            <li class="dropdown-item text-sm">
+                                <label class="checkbox-icon">
+                                    <input type="checkbox" class="checkbox-hidden" data-value="api">
+                                    <i class="fi fi-rs-square icon unchecked"></i>
+                                    <i class="fi fi-rs-checkbox icon checked"></i>
+                                    Api
+                                </label>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label">Nombre:</label>
+                    <input type="text" class="input input-secondary">
+                </div>
+                <div class="form-group">
+                    <label for="" class="form-label">Etiqueta:</label>
+                    <input type="text" class="input input-secondary">
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-secondary">
+                    Filtrar
+                </button>
+                <button class="btn-error-outline btn-icon-only">
+                    <i class="fi fi-ss-clear-alt"></i>
+                </button>
+            </div>
+        </div>
+        <div class="card card-quarter">
+            <div class="card-header">
+                <div class="flex-between w-full">
+                    <h3 class="text-md text-black m-0">Marco</h3>
+                    <label class="toggle-icon">
+                        <input type="checkbox" id="avisoprivacidad" class="toggle-hidden" checked>
+                        <i class="fi fi-ss-toggle-off icon icon-secondary unchecked text-md"></i>
+                        <i class="fi fi-ss-toggle-on icon icon-secondary checked text-md"></i>
+                    </label>
+                </div>
+            </div>
+            <div class="card-image center">
+                <img src="/assets/man.svg" class="avatar-img shadow-drop" width="200" height="200" alt="Avatar">
+            </div>
+            <div class="card-body">
+                <div class="field">
+                    <label class="field-label">Descripción:</label>
+                    <p class="field-value">Asistente de atención a clientes. Atendera dudas y solicitudes de los clientes por whatsapp.</p>
+                </div>
+                <div class="field">
+                    <label class="field-label">Creado por:</label>
+                    <p class="field-value">Marco Galindo</p>
+                </div>
+                <div class="mt-4 badge-group">
+                    <span class="badge badge-secondary badge-outline">Whatsapp</span>
+                    <span class="badge badge-secondary badge-outline">ATN</span>
+                    <span class="badge badge-secondary badge-outline">IA</span>
+                </div>
+                <div class="icon-list mt-4">
+                    <i class="fi fi-brands-whatsapp icon-muted"></i>
+                    <i class="fi fi-brands-facebook-messenger icon-muted"></i>
+                    <i class="fi fi-ss-globe icon-muted"></i>
+                    <i class="fi fi-brands-telegram icon-muted"></i>
+                    <i class="fi fi-rs-life-ring icon-muted"></i>
+                    <i class="fi fi-rs-api icon-muted"></i>
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn-outline btn-secondary-outline">
+                    Editar
+                </button>
+            </div>
+        </div>
+    </div>
+    <h3 class="p-2">
+        Tablas
+    </h3>
+    <div class="p-2">
+        <table class="table">
+            <thead class="bg-default">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Rol</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Marco Galindo</td>
+                    <td>marco@example.com</td>
+                    <td>Administrador</td>
+                    <td>Activo</td>
+                </tr>
+                <tr>
+                    <td>Ana López</td>
+                    <td>ana@example.com</td>
+                    <td>Editor</td>
+                    <td>Inactivo</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="mt-4"></div>
+        <table class="table table-bordered">
+            <thead class="bg-gray">
+                <tr>
+                    <th colspan="100%">
+                        <div class="row">
+                            <div class="col-6">
+                                <input type="text" class="input input-sm input-primary" placeholder="Buscar nombre o email">
+                            </div>
+                            <div class="col-6">
+                                <select class="input input-sm input-primary">
+                                    <option value="">Todos los roles</option>
+                                    <option value="admin">Admin</option>
+                                    <option value="usuario">Usuario</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-2">
+                            <div class="col-6">
+                                <select class="input input-sm input-primary">
+                                    <option value="">Todos los estatus</option>
+                                    <option value="activo">Activo</option>
+                                    <option value="inactivo">Inactivo</option>
+                                </select>
+                            </div>
+                            <div class="col-3">
+                                <button class="btn-outline btn-primary-outline btn-sm">
+                                    <i class="fi fi-rs-refresh icon"></i> Limpiar
+                                </button>
+                            </div>
+                            <div class="col-3">
+                                <button class="btn btn-primary btn-sm">
+                                    <i class="fi fi-rs-search icon"></i> Buscar
+                                </button>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <td class="col-checkbox table-checkbox">
+                        <label class="checkbox-icon default">
+                            <input type="checkbox" class="checkbox-hidden">
+                            <i class="fi fi-rs-square icon unchecked"></i>
+                            <i class="fi fi-ss-checkbox icon checked"></i>
+                        </label>
+                    </td>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Rol</th>
+                    <th>Estatus</th>
+                    <th>
+                        <i class="fi fi-ss-menu-dots"></i>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="col-checkbox table-checkbox">
+                        <label class="checkbox-icon default">
+                            <input type="checkbox" class="checkbox-hidden">
+                            <i class="fi fi-rs-square icon unchecked"></i>
+                            <i class="fi fi-ss-checkbox icon primary checked"></i>
+                        </label>
+                    </td>
+                    <td>Juan Pérez</td>
+                    <td>juan@mail.com</td>
+                    <td>Administrador</td>
+                    <td class="pill-center">
+                        <span class="pill pill-secondary">Activo</span>
+                    </td>
+                    <td>
+                        <button type="button" class="btn-error-outline btn-icon-only">
+                            <i class="fi fi-ss-trash-xmark icon"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-checkbox table-checkbox">
+                        <label class="checkbox-icon default">
+                            <input type="checkbox" class="checkbox-hidden">
+                            <i class="fi fi-rs-square icon unchecked"></i>
+                            <i class="fi fi-ss-checkbox icon primary checked"></i>
+                        </label>
+                    </td>
+                    <td>Juan Pérez</td>
+                    <td>juan@mail.com</td>
+                    <td>Administrador</td>
+                    <td class="pill-center">
+                        <span class="pill pill-gray">Inactivo</span>
+                    </td>
+                    <td>
+                        <button type="button" class="btn-error-outline btn-icon-only">
+                            <i class="fi fi-ss-trash-xmark icon"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-checkbox table-checkbox">
+                        <label class="checkbox-icon default">
+                            <input type="checkbox" class="checkbox-hidden">
+                            <i class="fi fi-rs-square icon unchecked"></i>
+                            <i class="fi fi-ss-checkbox icon primary checked"></i>
+                        </label>
+                    </td>
+                    <td>Juan Pérez</td>
+                    <td>juan@mail.com</td>
+                    <td>Administrador</td>
+                    <td class="pill-center">
+                        <span class="pill pill-error">Error</span>
+                    </td>
+                    <td>
+                        <button type="button" class="btn-error-outline btn-icon-only">
+                            <i class="fi fi-ss-trash-xmark icon"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-checkbox table-checkbox">
+                        <label class="checkbox-icon default">
+                            <input type="checkbox" class="checkbox-hidden">
+                            <i class="fi fi-rs-square icon unchecked"></i>
+                            <i class="fi fi-ss-checkbox icon primary checked"></i>
+                        </label>
+                    </td>
+                    <td>Juan Pérez</td>
+                    <td>juan@mail.com</td>
+                    <td>Administrador</td>
+                    <td class="pill-center">
+                        <span class="pill pill-primary">Pendiente</span>
+                    </td>
+                    <td>
+                        <button type="button" class="btn-error-outline btn-icon-only">
+                            <i class="fi fi-ss-trash-xmark icon"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-checkbox table-checkbox">
+                        <label class="checkbox-icon default">
+                            <input type="checkbox" class="checkbox-hidden">
+                            <i class="fi fi-rs-square icon unchecked"></i>
+                            <i class="fi fi-ss-checkbox icon primary checked"></i>
+                        </label>
+                    </td>
+                    <td>Juan Pérez</td>
+                    <td>juan@mail.com</td>
+                    <td>Administrador</td>
+                    <td class="pill-center">
+                        <span class="pill pill-secondary">Activo</span>
+                    </td>
+                    <td>
+                        <button type="button" class="btn-error-outline btn-icon-only">
+                            <i class="fi fi-ss-trash-xmark icon"></i>
+                        </button>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-checkbox table-checkbox">
+                        <label class="checkbox-icon default">
+                            <input type="checkbox" class="checkbox-hidden">
+                            <i class="fi fi-rs-square icon unchecked"></i>
+                            <i class="fi fi-ss-checkbox icon primary checked"></i>
+                        </label>
+                    </td>
+                    <td>Juan Pérez</td>
+                    <td>juan@mail.com</td>
+                    <td>Administrador</td>
+                    <td class="pill-center">
+                        <span class="pill pill-error">Error</span>
+                    </td>
+                    <td>
+                        <button type="button" class="btn-error-outline btn-icon-only">
+                            <i class="fi fi-ss-trash-xmark icon"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr class="bt-gray">
+                    <td colspan="100%">
+                        <div class="pager">
+                            <button class="pager-icon">
+                                <i class="fi fi-ss-angle-small-left icon icon-gray"></i>
+                            </button>
+                            <span class="pager-text">Página 1 de 5</span>
+                            <button class="pager-icon">
+                                <i class="fi fi-ss-angle-small-right icon icon-gray"></i>
+                            </button>
+                        </div>
+                  </td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="mt-4"></div>
+        <div class="row">
+            <h3>Usuarios</h3>
+        </div>
+        <div class="row mb-2">
+            <div class="mla">
+                <button type="button" class="btn-outline btn-secondary-outline">
+                    <i class="fi fi-ss-download"></i>
+                    Descargar
+                </button>
+                <button type="button" class="btn-outline btn-secondary-outline">
+                    <i class="fi fi-ss-time-past"></i>
+                    Recargar
+                </button>
+                <button type="button" class="btn btn-secondary">
+                    <i class="fi fi-ss-plus"></i>
+                    Crear usuario
+                </button>
+            </div>
+        </div>
+        <table class="table table-full">
+            <thead class="bg-gray">
+                <tr class="bg-gray">
+                    <th colspan="100%">
+                        <div class="table-toolbar">
+                            <div class="row">
+                                <div class="col-4">
+                                    <input type="searc" class="input input-sm input-secondary" placeholder="Buscar nombre">
+                                </div>
+                                <div class="col-2">
+                                    <div class="dropdown multi-select" id="filtroCiudades">
+                                        <input type="hidden" name="servicios" value="">
+                                        <button class="btn-outline btn-secondary-outline dropdown-toggle text-sm text-black">
+                                            Ciudad
+                                            <i class="fi fi-rs-caret-down icon icon-down"></i>
+                                            <i class="fi fi-rs-caret-up icon icon-up"></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item secondary text-sm">
+                                                <label class="checkbox-icon">
+                                                    <input type="checkbox" class="checkbox-hidden" data-value="cdmx">
+                                                    <i class="fi fi-rs-square icon unchecked"></i>
+                                                    <i class="fi fi-rs-checkbox icon checked"></i>
+                                                    CDMX
+                                                </label>
+                                            </li>
+                                            <li class="dropdown-item secondary text-sm">
+                                                <label class="checkbox-icon text-left">
+                                                    <input type="checkbox" class="checkbox-hidden" data-value="gdl">
+                                                    <i class="fi fi-rs-square icon unchecked"></i>
+                                                    <i class="fi fi-rs-checkbox icon checked"></i>
+                                                    Guadalajara
+                                                </label>
+                                            </li>
+                                            <li class="dropdown-item secondary text-sm">
+                                                <label class="checkbox-icon">
+                                                    <input type="checkbox" class="checkbox-hidden" data-value="mty">
+                                                    <i class="fi fi-rs-square icon unchecked"></i>
+                                                    <i class="fi fi-rs-checkbox icon checked"></i>
+                                                    Monterrey
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="dropdown multi-select" id="filtroRol">
+                                        <input type="hidden" name="servicios" value="">
+                                        <button class="btn-outline btn-secondary-outline dropdown-toggle text-sm text-black">
+                                            Rol
+                                            <i class="fi fi-rs-caret-down icon icon-down"></i>
+                                            <i class="fi fi-rs-caret-up icon icon-up"></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item secondary text-sm">
+                                                <label class="checkbox-icon">
+                                                    <input type="checkbox" class="checkbox-hidden" data-value="admin">
+                                                    <i class="fi fi-rs-square icon unchecked"></i>
+                                                    <i class="fi fi-rs-checkbox icon checked"></i>
+                                                    Admin
+                                                </label>
+                                            </li>
+                                            <li class="dropdown-item secondary text-sm">
+                                                <label class="checkbox-icon text-left">
+                                                    <input type="checkbox" class="checkbox-hidden" data-value="soporte">
+                                                    <i class="fi fi-rs-square icon unchecked"></i>
+                                                    <i class="fi fi-rs-checkbox icon checked"></i>
+                                                    Soporte
+                                                </label>
+                                            </li>
+                                            <li class="dropdown-item secondary text-sm">
+                                                <label class="checkbox-icon">
+                                                    <input type="checkbox" class="checkbox-hidden" data-value="rh">
+                                                    <i class="fi fi-rs-square icon unchecked"></i>
+                                                    <i class="fi fi-rs-checkbox icon checked"></i>
+                                                    Recursos Humanos
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="dropdown multi-select" id="filtroStatus">
+                                        <input type="hidden" name="servicios" value="">
+                                        <button class="btn-outline btn-secondary-outline dropdown-toggle text-sm text-black">
+                                            Estatus
+                                            <i class="fi fi-rs-caret-down icon icon-down"></i>
+                                            <i class="fi fi-rs-caret-up icon icon-up"></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item secondary text-sm">
+                                                <label class="checkbox-icon">
+                                                    <input type="checkbox" class="checkbox-hidden" data-value="activo">
+                                                    <i class="fi fi-rs-square icon unchecked"></i>
+                                                    <i class="fi fi-rs-checkbox icon checked"></i>
+                                                    Activo
+                                                </label>
+                                            </li>
+                                            <li class="dropdown-item secondary text-sm">
+                                                <label class="checkbox-icon text-left">
+                                                    <input type="checkbox" class="checkbox-hidden" data-value="inactivo">
+                                                    <i class="fi fi-rs-square icon unchecked"></i>
+                                                    <i class="fi fi-rs-checkbox icon checked"></i>
+                                                    Inactivo
+                                                </label>
+                                            </li>
+                                            <li class="dropdown-item secondary text-sm">
+                                                <label class="checkbox-icon">
+                                                    <input type="checkbox" class="checkbox-hidden" data-value="error">
+                                                    <i class="fi fi-rs-square icon unchecked"></i>
+                                                    <i class="fi fi-rs-checkbox icon checked"></i>
+                                                    Error
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <div class="dropdown multi-select" id="filtroTipo">
+                                        <input type="hidden" name="servicios" value="">
+                                        <button class="btn-outline btn-secondary-outline dropdown-toggle text-sm text-black">
+                                            Tipo
+                                            <i class="fi fi-rs-caret-down icon icon-down"></i>
+                                            <i class="fi fi-rs-caret-up icon icon-up"></i>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-item secondary text-sm">
+                                                <label class="checkbox-icon">
+                                                    <input type="checkbox" class="checkbox-hidden" data-value="web">
+                                                    <i class="fi fi-rs-square icon unchecked"></i>
+                                                    <i class="fi fi-rs-checkbox icon checked"></i>
+                                                    Web
+                                                </label>
+                                            </li>
+                                            <li class="dropdown-item secondary text-sm">
+                                                <label class="checkbox-icon text-left">
+                                                    <input type="checkbox" class="checkbox-hidden" data-value="app">
+                                                    <i class="fi fi-rs-square icon unchecked"></i>
+                                                    <i class="fi fi-rs-checkbox icon checked"></i>
+                                                    App
+                                                </label>
+                                            </li>
+                                            <li class="dropdown-item secondary text-sm">
+                                                <label class="checkbox-icon">
+                                                    <input type="checkbox" class="checkbox-hidden" data-value="api">
+                                                    <i class="fi fi-rs-square icon unchecked"></i>
+                                                    <i class="fi fi-rs-checkbox icon checked"></i>
+                                                    API
+                                                </label>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </th>
+                </tr>
+                <tr>
+                    <td class="col-checkbox table-checkbox">
+                        <label class="checkbox-icon default">
+                            <input type="checkbox" class="checkbox-hidden" data-selectall>
+                            <i class="fi fi-rs-square icon unchecked"></i>
+                            <i class="fi fi-ss-checkbox icon secondary checked"></i>
+                        </label>
+                    </th>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Teléfono</th>
+                    <th>Dirección</th>
+                    <th>Ciudad</th>
+                    <th>Estado</th>
+                    <th>País</th>
+                    <th>Rol</th>
+                    <th>Estatus</th>
+                    <th>Creado</th>
+                    <th>Actualizado</th>
+                    <th>IP</th>
+                    <th>Tipo</th>
+                    <th>Notas</th>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-id="fila-1">
+                    <td class="col-checkbox table-checkbox">
+                        <label class="checkbox-icon default">
+                            <input type="checkbox" class="checkbox-hidden" data-color="secondary">
+                            <i class="fi fi-rs-square icon unchecked"></i>
+                            <i class="fi fi-ss-checkbox icon secondary checked"></i>
+                        </label>
+                    </td>
+                    <td class="text-center">1</td>
+                    <td>Juan Pérez</td>
+                    <td>juan@mail.com</td>
+                    <td>555-1234</td>
+                    <td>Calle 123</td>
+                    <td>CDMX</td>
+                    <td>Activo</td>
+                    <td>México</td>
+                    <td>Admin</td>
+                    <td>
+                        <span class="badge badge-success">Activo</span>
+                    </td>
+                    <td>2024-01-01</td>
+                    <td>2024-03-10</td>
+                    <td>192.168.1.1</td>
+                    <td>Web</td>
+                    <td>Ninguna</td>
+                    <td>
+                        <div class="actions-dropdown">
+                            <i class="fi fi-ss-menu-dots"></i>
+                            <ul class="dropdown-menu dropdown-menu-actions">
+                                <li class="dropdown-item secondary text-sm" data-action="editar">
+                                    <i class="fi fi-ss-edit icon"></i>
+                                    Editar
+                                </li>
+                                <li class="dropdown-item secondary text-sm" data-action="desactivar">
+                                    <i class="fi fi-rs-crossed-eye icon"></i>
+                                    Desactivar
+                                </li>
+                                <li class="dropdown-separator"></li>
+                                <li class="dropdown-item error text-sm" data-action="eliminar">
+                                    <i class="fi fi-ss-trash-xmark icon"></i>
+                                    Eliminar
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+                <tr data-id="fila-2">
+                    <td class="col-checkbox table-checkbox">
+                        <label class="checkbox-icon default">
+                            <input type="checkbox" class="checkbox-hidden" data-color="secondary">
+                            <i class="fi fi-rs-square icon unchecked"></i>
+                            <i class="fi fi-ss-checkbox icon secondary checked"></i>
+                        </label>
+                    </td>
+                    <td class="text-center">2</td>
+                    <td>María López</td>
+                    <td>maria@mail.com</td>
+                    <td>555-5678</td>
+                    <td>Avenida 456</td>
+                    <td>Guadalajara</td>
+                    <td>Activo</td>
+                    <td>México</td>
+                    <td>Soporte</td>
+                    <td>
+                        <span class="badge badge-error">Error</span>
+                    </td>
+                    <td>2024-02-01</td>
+                    <td>2024-03-12</td>
+                    <td>192.168.1.2</td>
+                    <td>App</td>
+                    <td>Urgente</td>
+                    <td>
+                        <div class="actions-dropdown">
+                            <i class="fi fi-ss-menu-dots"></i>
+                            <ul class="dropdown-menu dropdown-menu-actions">
+                                <li class="dropdown-item secondary text-sm" data-action="editar">
+                                    Editar
+                                </li>
+                                <li class="dropdown-item secondary text-sm" data-action="desactivar">
+                                    Desactivar
+                                </li>
+                                <li class="dropdown-separator"></li>
+                                <li class="dropdown-item error text-sm" data-action="eliminar">
+                                    Eliminar
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr class="bt-gray">
+                    <td colspan="100%">
+                        <div class="pager">
+                            <button class="pager-icon">
+                                <i class="fi fi-ss-angle-small-left icon icon-gray"></i>
+                            </button>
+                            <span class="pager-text">Página 1 de 5</span>
+                            <button class="pager-icon">
+                                <i class="fi fi-ss-angle-small-right icon icon-gray"></i>
+                            </button>
+                        </div>
+                  </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <script src="/scripts/index.js"></script>
+</body>
+</html>
