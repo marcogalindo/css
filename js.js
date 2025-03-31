@@ -1,21 +1,66 @@
 window.onDropdownSelect = null;
 
 document.addEventListener('click', e => {
-    const toggleBtn = e.target.closest('.dropdown-toggle');
-    const btnNumero = e.target.closest('[data-action]');
+  const toggleBtn = e.target.closest('.dropdown-toggle');
+  const btnNumero = e.target.closest('[data-action]');
+  const actionToggle = e.target.closest('.actions-dropdown > i');
 
+  // === Abrir/Cerrar dropdown principal ===
   if (toggleBtn) {
     const dropdown = toggleBtn.closest('.dropdown');
     dropdown.classList.toggle('open');
+
+    // Cierra otros dropdowns
     document.querySelectorAll('.dropdown').forEach(d => {
       if (d !== dropdown) d.classList.remove('open');
     });
     return;
   }
 
-  // MULTI-SELECT: clic en checkbox-icon o checkbox
-  const checkbox = e.target.closest('input[type="checkbox"]');
+  // === Abrir/Cerrar dropdown de acciones ===
+  if (actionToggle) {
+    const dropdown = actionToggle.closest('.actions-dropdown');
+    dropdown.classList.toggle('open');
 
+    // Cierra otros dropdowns de acciones
+    document.querySelectorAll('.actions-dropdown').forEach(d => {
+      if (d !== dropdown) d.classList.remove('open');
+    });
+
+    const menu = dropdown.querySelector('.dropdown-menu-actions');
+    if (menu) {
+      const menuRect = menu.getBoundingClientRect();
+      const spaceBelow = window.innerHeight - menuRect.top;
+
+      if (spaceBelow < 100) {
+        dropdown.classList.add('drop-up');
+      } else {
+        dropdown.classList.remove('drop-up');
+      }
+    }
+
+    return;
+  }
+
+  // === Click en acción del dropdown contextual ===
+  if (e.target.classList.contains('dropdown-item') && e.target.closest('.dropdown-menu-actions')) {
+    const action = e.target.dataset.action;
+    const row = e.target.closest('tr');
+    const id = row?.dataset?.id ?? null;
+
+    if (action && row) {
+      console.log(`Acción: ${action} sobre fila ID: ${id}`);
+      // Aquí puedes ejecutar funciones según la acción
+    }
+
+    // Cierra el menú
+    const container = e.target.closest('.actions-dropdown');
+    if (container) container.classList.remove('open');
+    return;
+  }
+
+  // === MULTI-SELECT con checkboxes ===
+  const checkbox = e.target.closest('input[type="checkbox"]');
   if (checkbox && checkbox.closest('.multi-select')) {
     const dropdown = checkbox.closest('.dropdown');
     const toggle = dropdown.querySelector('.dropdown-toggle');
@@ -34,10 +79,10 @@ document.addEventListener('click', e => {
       window.onDropdownSelect({ values, dropdown });
     }
 
-    return; // No cerramos el dropdown aún
+    return;
   }
 
-  // NORMAL DROPDOWN: clic en .dropdown-item
+  // === NORMAL DROPDOWN ===
   if (e.target.classList.contains('dropdown-item')) {
     const dropdown = e.target.closest('.dropdown');
     const toggle = dropdown.querySelector('.dropdown-toggle');
@@ -56,30 +101,38 @@ document.addEventListener('click', e => {
     return;
   }
 
+  // === Número incrementable ===
+  if (btnNumero && btnNumero.closest('.numero-control')) {
+    const accion = btnNumero.getAttribute('data-action');
+    const grupo = btnNumero.closest('.numero-control');
+    const input = grupo.querySelector('input[type="number"]');
 
-if (btnNumero && btnNumero.closest('.numero-control')) {
-  const accion = btnNumero.getAttribute('data-action');
-  const grupo = btnNumero.closest('.numero-control');
-  const input = grupo.querySelector('input[type="number"]');
+    let valor = parseInt(input.value, 10) || 0;
+    const min = parseInt(input.min, 10) || -Infinity;
+    const max = parseInt(input.max, 10) || Infinity;
 
-  let valor = parseInt(input.value, 10) || 0;
-  const min = parseInt(input.min, 10) || -Infinity;
-  const max = parseInt(input.max, 10) || Infinity;
+    if (accion === 'incrementar') valor++;
+    else if (accion === 'decrementar') valor--;
 
-  if (accion === 'incrementar') valor++;
-  else if (accion === 'decrementar') valor--;
+    valor = Math.max(min, Math.min(max, valor));
+    input.value = valor;
+    return;
+  }
 
-  valor = Math.max(min, Math.min(max, valor));
-  input.value = valor;
+  // === Dismiss del snackbar ===
+  if (e.target.closest('.dismiss-btn')) {
+    const snackbar = e.target.closest('.snackbar');
+    snackbar.classList.remove('show');
+    return;
+  }
 
-  return;
-}
-
-  // Clic fuera – cierra todos
+  // === Cerrar dropdowns al hacer clic fuera ===
   document.querySelectorAll('.dropdown').forEach(dropdown => {
-    if (!dropdown.contains(e.target)) {
-      dropdown.classList.remove('open');
-    }
+    if (!dropdown.contains(e.target)) dropdown.classList.remove('open');
+  });
+
+  document.querySelectorAll('.actions-dropdown').forEach(dropdown => {
+    if (!dropdown.contains(e.target)) dropdown.classList.remove('open');
   });
 });
 
@@ -92,12 +145,63 @@ document.addEventListener('input', e => {
     }
 });
 
-document.addEventListener('click', e => {
-    // Botón dismiss del snackbar
-    if (e.target.closest('.dismiss-btn')) {
-      const snackbar = e.target.closest('.snackbar');
-      snackbar.classList.remove('show');
+document.addEventListener('change', function (e) {
+  if (e.target.matches('.checkbox-icon input[type="checkbox"]:not([data-selectall])')) {
+    const checkbox = e.target;
+    const tr = checkbox.closest('tr');
+    const color = checkbox.dataset.color || 'primary';
+    tr.classList.toggle(`row-active-${color}`, checkbox.checked);
+
+    const table = checkbox.closest('table');
+    const allCheckboxes = table.querySelectorAll('tbody .checkbox-icon input[type="checkbox"]');
+    const selectAll = table.querySelector('[data-selectall]');
+    if (selectAll) {
+      const allChecked = Array.from(allCheckboxes).every(cb => cb.checked);
+      selectAll.checked = allChecked;
     }
+
+    actualizarFilasSeleccionadas(table);
+  }
+
+  if (e.target.matches('[data-selectall]')) {
+    const isChecked = e.target.checked;
+    const table = e.target.closest('table');
+    const checkboxes = table.querySelectorAll('tbody .checkbox-icon input[type="checkbox"]');
+
+    checkboxes.forEach(cb => {
+      cb.checked = isChecked;
+      const tr = cb.closest('tr');
+      const color = cb.dataset.color || 'primary';
+      tr.classList.toggle(`row-active-${color}`, isChecked);
+    });
+
+    actualizarFilasSeleccionadas(table);
+  }
+});
+
+document.querySelectorAll('.number-input-fancy').forEach(control => {
+    const input = control.querySelector('input');
+    const minus = control.querySelector('.minus');
+    const plus = control.querySelector('.plus');
+  
+    const min = parseInt(input.getAttribute('min')) || 0;
+    const max = parseInt(input.getAttribute('max')) || Infinity;
+  
+    minus.addEventListener('click', () => {
+      let val = parseInt(input.value) || 0;
+      if (val > min) {
+        val--;
+        input.value = val;
+      }
+    });
+  
+    plus.addEventListener('click', () => {
+      let val = parseInt(input.value) || 0;
+      if (val < max) {
+        val++;
+        input.value = val;
+      }
+    });
 });
 
 function obtenerValorCampo(id) {
@@ -114,4 +218,22 @@ function mostrarSnackbar(id, tiempo = 3000) {
     setTimeout(() => {
       snackbar.classList.remove('show');
     }, tiempo);
+}
+
+function actualizarFilasSeleccionadas(table) {
+  const filas = table.querySelectorAll('tbody tr');
+  const seleccionadas = [];
+
+  filas.forEach((tr, index) => {
+    const checkbox = tr.querySelector('.checkbox-icon input[type="checkbox"]');
+    if (checkbox && checkbox.checked) {
+      const id = tr.dataset.id || index;
+      seleccionadas.push(id);
+    }
+  });
+
+  window.selectedRows = seleccionadas;
+
+  // Por si quieres debug:
+  console.log('Filas seleccionadas:', window.selectedRows);
 }
