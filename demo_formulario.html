@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/index.css">
+    <title>Formulario</title>
+</head>
+<body class="bg-gray">
+    <div class="container container-lg bg-white center border border-radius">
+        <h3 class="p-2">
+            Información personal
+            <span class="tooltip-container">
+                <i class="fi fi-ss-info icon"></i>
+                <span class="tooltip-text tooltip-right">Informacion general necesaria para continuar con el proceso</span>
+            </span>
+        </h3>
+        <div class="row p-2">
+            <div class="form-group col-4">
+                <label for="nombre" class="form-label">Nombre(s)</label>
+                <input type="text" id="nombre" class="input input-secondary">
+            </div>
+            <div class="form-group col-4">
+                <label for="apellido_p" class="form-label">Apellido paterno</label>
+                <input type="text" id="apellido_p" class="input input-secondary">
+            </div>
+            <div class="form-group col-4">
+                <label for="apellido_m" class="form-label">Apellido materno</label>
+                <input type="text" id="apellido_m" class="input input-secondary">
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="form-group col-2">
+                <label for="edad" class="form-label">Edad</label>
+                <div class="number-input-fancy" id="campoEdad">
+                    <button class="btn-outline btn-secondary-outline btn-icon-only minus" aria-label="Menos">
+                        <i class="fi fi-ss-angle-left icon"></i>
+                    </button>
+                    <input type="text" readonly class="input input-primary number-box" value="18" min="18" max="25" name="edad"/>
+                    <button class="btn-outline btn-secondary-outline btn-icon-only plus" aria-label="Más">
+                        <i class="fi fi-ss-angle-right icon"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="form-group col-4">
+                <label for="campoEstadoCivil" class="form-label">Estado civil</label>
+                <div class="dropdown dropdown-secondary" id="campoEstadoCivil">
+                    <input type="hidden" name="pais" value="">
+                    <button class="btn-outline btn-secondary-outline dropdown-toggle text-sm text-black">
+                      Selecciona una opción
+                      <i class="fi fi-rs-caret-down icon icon-down"></i>
+                      <i class="fi fi-rs-caret-up icon icon-up"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                      <li class="dropdown-item text-sm" data-value="soltero">Soltero</li>
+                      <li class="dropdown-item text-sm" data-value="comprometido">Comprometido</li>
+                      <li class="dropdown-item text-sm" data-value="casado">Casado</li>
+                      <li class="dropdown-item text-sm" data-value="viudo">Viudo</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-6">
+                    <label for="sexo" class="form-label">Sexo</label>
+                    <div class="radio-group">
+                        <label class="radio-icon">
+                            <input type="radio" name="sexo" class="radio-hidden" checked value="masculino">
+                            <i class="fi fi-rs-circle icon unchecked"></i>
+                            <i class="fi fi-rs-dot-circle icon checked"></i>
+                            Masculino
+                        </label>
+                        <label class="radio-icon">
+                            <input type="radio" name="sexo" class="radio-hidden" value="femenino">
+                            <i class="fi fi-rs-circle icon unchecked"></i>
+                            <i class="fi fi-rs-dot-circle icon checked"></i>
+                            Femenino
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 class="p-2">Dirección</h3>
+        <div class="row p-2">
+            <div class="form-group col-12">
+                <label for="address_1" class="form-label">Dirección 1</label>
+                <input type="text" class="input input-secondary" id="address_1">
+            </div>
+            <div class="form-group col-6">
+                <label for="address_2" class="form-label">Dirección 2</label>
+                <input type="text" class="input input-secondary" id="address_2">
+            </div>
+            <div class="form-group col-6">
+                <label for="campoPais" class="form-label">País de origen</label>
+                <div class="dropdown" id="campoPais">
+                    <input type="hidden" name="pais" value="">
+                    <button class="btn-outline btn-secondary-outline dropdown-toggle text-sm text-black">
+                        Seleccionar
+                        <i class="fi fi-rs-caret-down icon icon-down"></i>
+                        <i class="fi fi-rs-caret-up icon icon-up"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item text-sm" data-value="mx">
+                            <img src="/assets/mexico.png" width="16" height="16" alt="México">
+                            México
+                        </li>
+                        <li class="dropdown-item text-sm" data-value="us">
+                            <img src="/assets/us.png" width="16" height="16" alt="Estados Unidos">
+                            Estados Unidos
+                        </li>
+                        <li class="dropdown-item text-sm" data-value="us">
+                            <img src="/assets/canada.png" width="16" height="16" alt="Canada">
+                            Canada
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row p-2">
+            <div class="form-group col-2">
+                <label for="cp" class="form-label">Código postal</label>
+                <input type="number" class="input input-secondary" id="cp" value="0" min="1" max="10000">
+            </div>
+            <div class="form-group col-3">
+                <label for="nacimiento" class="form-label">Fecha de nacimiento</label>
+                <input type="date" class="input input-secondary" id="nacimiento">
+            </div>
+        </div>
+        <h3 class="p-2">Servicios</h3>
+        <div class="row p-2">
+            <div class="form-group col-6">
+                <label for="campoServicios" class="form-label">¿Que servicios quieres contratar?</label>
+                <div class="dropdown multi-select" id="campoServicios">
+                    <input type="hidden" name="servicios" value="">
+                    <button class="btn-outline btn-secondary-outline dropdown-toggle text-sm text-black">
+                        Selecciona servicios
+                        <i class="fi fi-rs-caret-down icon icon-down"></i>
+                        <i class="fi fi-rs-caret-up icon icon-up"></i>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-item text-sm">
+                            <label class="checkbox-icon">
+                                <input type="checkbox" class="checkbox-hidden" data-value="internet">
+                                <i class="fi fi-rs-square icon unchecked"></i>
+                                <i class="fi fi-rs-checkbox icon checked"></i>
+                                Internet
+                            </label>
+                        </li>
+                        <li class="dropdown-item text-sm">
+                            <label class="checkbox-icon">
+                                <input type="checkbox" class="checkbox-hidden" data-value="tv">
+                                <i class="fi fi-rs-square icon unchecked"></i>
+                                <i class="fi fi-rs-checkbox icon checked"></i>
+                                TV Cable
+                            </label>
+                        </li>
+                        <li class="dropdown-item text-sm">
+                            <label class="checkbox-icon">
+                                <input type="checkbox" class="checkbox-hidden" data-value="telefono">
+                                <i class="fi fi-rs-square icon unchecked"></i>
+                                <i class="fi fi-rs-checkbox icon checked"></i>
+                                Teléfono
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="toggle-group">
+                <label class="toggle-icon">
+                    <input type="checkbox" id="notificaciones" class="toggle-hidden">
+                    <i class="fi fi-ss-toggle-off icon icon-secondary unchecked text-md"></i>
+                    <i class="fi fi-ss-toggle-on icon icon-secondary checked text-md"></i>
+                    <span>Quiero recibir notificaciones</span>
+                </label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="toggle-group">
+                <label class="toggle-icon">
+                    <input type="checkbox" id="avisoprivacidad" class="toggle-hidden">
+                    <i class="fi fi-ss-toggle-off icon icon-secondary unchecked text-md"></i>
+                    <i class="fi fi-ss-toggle-on icon icon-secondary checked text-md"></i>
+                    <span>Acepto el aviso de privacidad</span>
+                </label>
+            </div>
+        </div>
+        <div class="row row-right">
+            <button id="btnSave" class="btn btn-secondary btn-icon" onclick="mostrarSnackbar('miSnackbar')">
+                <i class="fi fi-rs-disk icon"></i>
+                Guardar
+            </button>
+        </div>
+    </div>
+    <div class="snackbar secondary snackbar-bottom" id="miSnackbar">
+        <i class="fi fi-ss-info icon"></i>
+        <span>La información se guardo correctamente.</span>
+        <button class="dismiss-btn">
+          <i class="fi fi-rs-cross-small icon"></i>
+        </button>
+    </div>
+    <script src="/scripts/index.js"></script>
+</body>
+</html>
