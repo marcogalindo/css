@@ -32,7 +32,7 @@ document.addEventListener('click', e => {
       const menuRect = menu.getBoundingClientRect();
       const spaceBelow = window.innerHeight - menuRect.top;
 
-      if (spaceBelow < 100) {
+      if (spaceBelow < 200) {
         dropdown.classList.add('drop-up');
       } else {
         dropdown.classList.remove('drop-up');
@@ -149,7 +149,7 @@ document.addEventListener('change', function (e) {
   if (e.target.matches('.checkbox-icon input[type="checkbox"]:not([data-selectall])')) {
     const checkbox = e.target;
     const tr = checkbox.closest('tr');
-    const color = checkbox.dataset.color || 'primary';
+    const color = checkbox.dataset.color;
     tr.classList.toggle(`row-active-${color}`, checkbox.checked);
 
     const table = checkbox.closest('table');
@@ -171,11 +171,26 @@ document.addEventListener('change', function (e) {
     checkboxes.forEach(cb => {
       cb.checked = isChecked;
       const tr = cb.closest('tr');
-      const color = cb.dataset.color || 'primary';
+      const color = cb.dataset.color;
       tr.classList.toggle(`row-active-${color}`, isChecked);
     });
 
     actualizarFilasSeleccionadas(table);
+  }
+});
+
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') {
+    const modalesAbiertos = document.querySelectorAll('.modal.show');
+
+    modalesAbiertos.forEach(modal => {
+      const wrapper = modal.closest('.modal-wrapper');
+      const dismissible = wrapper?.getAttribute('data-dismiss') !== 'false';
+
+      if (wrapper && dismissible) {
+        cerrarModal(wrapper.id);
+      }
+    });
   }
 });
 
@@ -202,6 +217,40 @@ document.querySelectorAll('.number-input-fancy').forEach(control => {
         input.value = val;
       }
     });
+});
+
+document.querySelectorAll('.file-dropzone').forEach(dropzone => {
+  const input = dropzone.querySelector('input[type="file"]');
+
+  dropzone.addEventListener('click', () => input.click());
+
+  dropzone.addEventListener('dragover', e => {
+    e.preventDefault();
+    dropzone.classList.add('dragover');
+  });
+
+  dropzone.addEventListener('dragleave', () => {
+    dropzone.classList.remove('dragover');
+  });
+
+  dropzone.addEventListener('drop', e => {
+    e.preventDefault();
+    dropzone.classList.remove('dragover');
+    input.files = e.dataTransfer.files;
+    manejarArchivos(input.files);
+  });
+
+  input.addEventListener('change', () => {
+    manejarArchivos(input.files);
+  });
+
+  function manejarArchivos(archivos) {
+    // Aquí podrías emitir un evento, llamar a un callback o mostrar la lista de archivos
+    console.log('Archivos seleccionados:', archivos);
+    if (typeof window.onFileDrop === 'function') {
+      window.onFileDrop(archivos);
+    }
+  }
 });
 
 function obtenerValorCampo(id) {
@@ -236,4 +285,85 @@ function actualizarFilasSeleccionadas(table) {
 
   // Por si quieres debug:
   console.log('Filas seleccionadas:', window.selectedRows);
+}
+
+function abrirModal(id) {
+  const wrapper = document.getElementById(id);
+  if (!wrapper) return;
+
+  const modal = wrapper.querySelector('.modal');
+  const backdrop = wrapper.querySelector('.modal-backdrop');
+
+  if (!modal || !backdrop) return;
+
+  // Mostrar wrapper
+  wrapper.style.display = 'block';
+
+  // === Backdrop (opaco o transparente)
+  const backdropType = wrapper.getAttribute('data-backdrop') || 'opaque';
+  backdrop.classList.remove('transparent');
+  
+  if (backdropType === 'transparent') {
+    backdrop.classList.add('transparent');
+  }
+
+  backdrop.classList.add('show');
+
+  // === Animación de entrada según posición
+  let entradaAnimacion = 'slide-up-in';
+  
+  if (modal.classList.contains('modal-right')) {
+    entradaAnimacion = 'slide-right-in';
+  } else if (modal.classList.contains('modal-left')) {
+    entradaAnimacion = 'slide-left-in';
+  }
+
+  modal.classList.remove('slide-up-out', 'slide-right-out', 'slide-left-out');
+  modal.classList.add('show', entradaAnimacion);
+
+  document.body.classList.add('modal-open');
+
+  // === Cierre por clic en backdrop si data-dismiss = true
+  const dismissible = wrapper.getAttribute('data-dismiss') !== 'false';
+
+  if (dismissible) {
+    backdrop.addEventListener('click', function cerrarClickBackdrop() {
+      cerrarModal(id);
+      backdrop.removeEventListener('click', cerrarClickBackdrop);
+    });
+  }
+}
+
+function cerrarModal(id) {
+  const wrapper = document.getElementById(id);
+  if (!wrapper) return;
+
+  const modal = wrapper.querySelector('.modal');
+  const backdrop = wrapper.querySelector('.modal-backdrop');
+
+  if (!modal || !backdrop) return;
+
+  // Detectar clase de posición
+  let salidaAnimacion = 'slide-up-out';
+
+  if (modal.classList.contains('modal-right')) {
+    salidaAnimacion = 'slide-right-out';
+  } else if (modal.classList.contains('modal-left')) {
+    salidaAnimacion = 'slide-left-out';
+  }
+
+  // Eliminar clases anteriores de entrada
+  modal.classList.remove('slide-up-in', 'slide-right-in', 'slide-left-in');
+  modal.classList.add(salidaAnimacion);
+
+  // Ocultar backdrop
+  backdrop.classList.remove('show');
+
+  document.body.classList.remove('modal-open');
+
+  // Después de la animación, ocultar completamente
+  setTimeout(() => {
+    modal.classList.remove('show', salidaAnimacion);
+    wrapper.style.display = 'none';
+  }, 300);
 }
