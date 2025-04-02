@@ -324,8 +324,8 @@
         <span class="pill pill-outline pill-secondary">Activo</span>
         <span class="pill pill-outline pill-secondary">Estatus activo</span>
         <span class="pill pill-outline pill-error">Error</span>
-      </div>
-      <div class="p-2">
+    </div>
+    <div class="p-2">
         <span class="badge badge-error badge-circle">
             <i class="fi fi-ss-light-emergency-on"></i>
         </span>
@@ -354,6 +354,14 @@
         <span class="tag tag-warning">#Pendiente</span>
         <span class="tag tag-error">#Urgente</span>
         <span class="tag tag-outline">+ Agregar</span>
+    </div>
+    <div class="p-2">
+        <label class="checkbox-icon tag-chip tag-chip-secondary">
+            <input type="checkbox" class="checkbox-hidden">
+            <i class="fi fi-rs-square icon unchecked"></i>
+            <i class="fi fi-ss-checkbox icon checked"></i>
+            <span>Ventas</span>
+        </label>
     </div>
     <div class="p-2">
         <div class="icon-list">
@@ -973,20 +981,20 @@
                     <i class="fi fi-ss-time-past"></i>
                     Recargar
                 </button>
-                <button type="button" class="btn btn-secondary">
+                <button type="button" onclick="abrirModal('modalCinco')" class="btn btn-secondary">
                     <i class="fi fi-ss-plus"></i>
                     Crear usuario
                 </button>
             </div>
         </div>
-        <table class="table table-full">
+        <table class="table table-full text-center">
             <thead class="bg-gray">
                 <tr class="bg-gray">
                     <th colspan="100%">
                         <div class="table-toolbar">
                             <div class="row">
                                 <div class="col-4">
-                                    <input type="searc" class="input input-sm input-secondary" placeholder="Buscar nombre">
+                                    <input type="search" class="input input-sm input-secondary" placeholder="Buscar nombre">
                                 </div>
                                 <div class="col-2">
                                     <div class="dropdown multi-select" id="filtroCiudades">
@@ -1138,7 +1146,7 @@
                 </tr>
                 <tr>
                     <td class="col-checkbox table-checkbox">
-                        <label class="checkbox-icon default">
+                        <label class="checkbox-icon secondary">
                             <input type="checkbox" class="checkbox-hidden" data-selectall>
                             <i class="fi fi-rs-square icon unchecked"></i>
                             <i class="fi fi-ss-checkbox icon secondary checked"></i>
@@ -1165,13 +1173,13 @@
             <tbody>
                 <tr data-id="fila-1">
                     <td class="col-checkbox table-checkbox">
-                        <label class="checkbox-icon default">
+                        <label class="checkbox-icon secondary">
                             <input type="checkbox" class="checkbox-hidden" data-color="secondary">
                             <i class="fi fi-rs-square icon unchecked"></i>
                             <i class="fi fi-ss-checkbox icon secondary checked"></i>
                         </label>
                     </td>
-                    <td class="text-center">1</td>
+                    <td>1</td>
                     <td>Juan Pérez</td>
                     <td>juan@mail.com</td>
                     <td>555-1234</td>
@@ -1193,16 +1201,16 @@
                             <i class="fi fi-ss-menu-dots"></i>
                             <ul class="dropdown-menu dropdown-menu-actions">
                                 <li class="dropdown-item secondary text-sm" data-action="editar">
-                                    <i class="fi fi-ss-edit icon"></i>
                                     Editar
                                 </li>
+                                <li class="dropdown-item secondary text-sm" data-action="actualizar">
+                                    Actualizar
+                                </li>
                                 <li class="dropdown-item secondary text-sm" data-action="desactivar">
-                                    <i class="fi fi-rs-crossed-eye icon"></i>
                                     Desactivar
                                 </li>
                                 <li class="dropdown-separator"></li>
                                 <li class="dropdown-item error text-sm" data-action="eliminar">
-                                    <i class="fi fi-ss-trash-xmark icon"></i>
                                     Eliminar
                                 </li>
                             </ul>
@@ -1211,13 +1219,13 @@
                 </tr>
                 <tr data-id="fila-2">
                     <td class="col-checkbox table-checkbox">
-                        <label class="checkbox-icon default">
+                        <label class="checkbox-icon secondary">
                             <input type="checkbox" class="checkbox-hidden" data-color="secondary">
                             <i class="fi fi-rs-square icon unchecked"></i>
                             <i class="fi fi-ss-checkbox icon secondary checked"></i>
                         </label>
                     </td>
-                    <td class="text-center">2</td>
+                    <td>2</td>
                     <td>María López</td>
                     <td>maria@mail.com</td>
                     <td>555-5678</td>
@@ -1240,6 +1248,9 @@
                             <ul class="dropdown-menu dropdown-menu-actions">
                                 <li class="dropdown-item secondary text-sm" data-action="editar">
                                     Editar
+                                </li>
+                                <li class="dropdown-item secondary text-sm" data-action="actualizar">
+                                    Actualizar
                                 </li>
                                 <li class="dropdown-item secondary text-sm" data-action="desactivar">
                                     Desactivar
@@ -1269,6 +1280,403 @@
                 </tr>
             </tfoot>
         </table>
+    </div>
+    <h3 class="p-2">
+        Modales
+    </h3>
+    <!-- Modal Base -->
+    <div id="modalUno" class="modal-wrapper" data-backdrop="opaque" data-dismiss="true">
+        <!-- Backdrop -->
+        <div class="modal-backdrop"></div>
+        <!-- Modal -->
+        <div class="modal modal-center modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="text-md">Título del Modal</h3>
+                    <button class="modal-close" onclick="cerrarModal('modalUno')">
+                        <i class="fi fi-rs-circle-xmark text-error"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Este es el contenido del modal. Puedes poner texto, inputs, tablas, etc.</p>
+                </div>
+                <div class="modal-section">
+                    <!-- Tabla o contenido -->
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary">Cancelar</button>
+                    <button class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalDos" class="modal-wrapper" data-backdrop="opaque" data-dismiss="true">
+        <!-- Backdrop -->
+        <div class="modal-backdrop"></div>
+        <!-- Modal -->
+        <div class="modal modal-left modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="text-md">Título del Modal</h3>
+                    <button class="modal-close" onclick="cerrarModal('modalDos')">
+                        <i class="fi fi-rs-cross-small icon"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Este es el contenido del modal. Puedes poner texto, inputs, tablas, etc.</p>
+                </div>
+                <div class="modal-section">
+                    <!-- Tabla o contenido -->
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary">Cancelar</button>
+                    <button class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalTres" class="modal-wrapper" data-backdrop="transparent" data-dismiss="true">
+        <!-- Backdrop -->
+        <div class="modal-backdrop"></div>
+        <!-- Modal -->
+        <div class="modal modal-right modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="text-md">Título del Modal</h3>
+                    <button class="modal-close" onclick="cerrarModal('modalTres')">
+                        <i class="fi fi-rs-cross-small icon"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Este es el contenido del modal. Puedes poner texto, inputs, tablas, etc.</p>
+                </div>
+                <div class="modal-section">
+                    <!-- Tabla o contenido -->
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary">Cancelar</button>
+                    <button class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalCuatro" class="modal-wrapper" data-backdrop="opaque" data-dismiss="true">
+        <!-- Backdrop -->
+        <div class="modal-backdrop"></div>
+        <!-- Modal -->
+        <div class="modal modal-right modal-fullscreen">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="text-md">Título del Modal</h3>
+                    <button class="modal-close" onclick="cerrarModal('modalCuatro')">
+                        <i class="fi fi-rs-cross-small icon"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Este es el contenido del modal. Puedes poner texto, inputs, tablas, etc.</p>
+                </div>
+                <div class="modal-section">
+                    <!-- Tabla o contenido -->
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary">Cancelar</button>
+                    <button class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalCinco" class="modal-wrapper" data-backdrop="opaque" data-dismiss="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal modal-center modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="text-md">Nuevo asistente</h3>
+                    <button class="modal-close" onclick="cerrarModal('modalCinco')">
+                        <i class="fi fi-rs-circle-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="assistantName" class="form-label">
+                            <span class="tooltip-container">
+                                <i class="fi fi-rs-info icon"></i>
+                                <span class="tooltip-text tooltip-right">
+                                    Darle un nombre a tu asistente, te ayudara<br/>
+                                    a reconocerlo fácilmente.
+                                </span>
+                            </span>
+                            Nombre:
+                        </label>
+                        <input type="text" class="input input-secondary" id="assistantName" placeholder="Nombra a tu asistente">
+                    </div>
+                    <div class="form-group">
+                        <label for="assistantDescription" class="form-label">
+                            <span class="tooltip-container">
+                                <i class="fi fi-rs-info icon"></i>
+                                <span class="tooltip-text tooltip-right">
+                                    Agrega una descripción que explique el objetivo del asistente.
+                                </span>
+                            </span>
+                            Descripción:
+                        </label>
+                        <textarea class="input input-secondary" cols="10" rows="7" id="assistantDescription" placeholder="Describe a tu asistente"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="assistantPrompt" class="form-label">
+                            <span class="tooltip-container">
+                                <i class="fi fi-rs-info icon"></i>
+                                <span class="tooltip-text tooltip-right">
+                                    Las instrucciones que seguira tu asistente para responder.</br> 
+                                    Se claro y específico ya que esto le ayudara a tu asistente a ser mas preciso.
+                                </span>
+                            </span>
+                            Instrucciones:
+                        </label>
+                        <div class="textarea-wrapper">
+                            <textarea id="comentario" class="input input-secondary textarea-conteo" maxlength="200" rows="4" cols="10" placeholder="Escribe tu comentario..."></textarea>
+                            <div class="contador-caracteres">0 / 200</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="campoModelos" class="form-label">
+                            <span class="tooltip-container">
+                                <i class="fi fi-rs-info icon"></i>
+                                <span class="tooltip-text tooltip-right">
+                                    El modelo GPT que usara tu asistente, por defecto es gpt-4o-mini.
+                                </span>
+                            </span>
+                            Modelo
+                        </label>
+                        <div class="dropdown" id="campoModelos">
+                            <input type="hidden" name="modelos" value="">
+                            <button class="btn-outline btn-secondary-outline dropdown-toggle text-sm text-black">
+                                Selecciona un modelo de IA
+                                <i class="fi fi-rs-caret-down icon icon-down"></i>
+                                <i class="fi fi-rs-caret-up icon icon-up"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-item secondary text-sm" data-value="gpt-4o-mini">
+                                    gpt-4o-mini
+                                </li>
+                                <li class="dropdown-item secondary text-sm" data-value="gpt-4o-mini-2024-07-18">
+                                    gpt-4o-mini-2024-07-18
+                                </li>
+                                <li class="dropdown-item secondary text-sm" data-value="gpt-4-1106-preview">
+                                    gpt-4-1106-preview
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">
+                            <span class="tooltip-container">
+                                <i class="fi fi-rs-info icon"></i>
+                                <span class="tooltip-text tooltip-right">
+                                    Agrega etiquetas a tu asistente, esto te ayudara a catalogarlos por tema o funcionalidades.
+                                </span>
+                            </span>
+                            Etiquetas:
+                        </label>
+                        <input type="text" class="input secondary" placeholder="Agrega una etiqueta">
+                    </div>
+                    <div class="p-2">
+                        <span class="tag tag-secondary">atn</span>
+                        <span class="tag tag-secondary">tdc</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalSeis" class="modal-wrapper" data-backdrop="transparent" data-dismiss="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal modal-center modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="text-md">Option cards</h3>
+                    <button class="modal-close" onclick="cerrarModal('modalSeis')">
+                        <i class="fi fi-rs-circle-xmark text-error"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="option-card mb-2">
+                        <div class="option-card-image">
+                            <img src="/assets/user-page.gif" alt="Icono" />
+                        </div>
+                        <div class="option-card-content">
+                            <h4 class="option-card-title">Notas</h4>
+                            <p class="option-card-description">
+                                Los ejecutivos pueden crear notas para guardar comentarios o información temporal de forma segura.
+                            </p>
+                        </div>
+                        <div class="option-card-toggle">
+                            <label class="toggle-icon">
+                                <input type="checkbox" id="avisoprivacidad" class="toggle-hidden" checked>
+                                <i class="fi fi-ss-toggle-off icon icon-secondary unchecked text-md"></i>
+                                <i class="fi fi-ss-toggle-on icon icon-secondary checked text-md"></i>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="option-card mb-2">
+                        <div class="option-card-image">
+                            <img src="/assets/speed.gif" alt="Icono" />
+                        </div>
+                        <div class="option-card-content">
+                            <h4 class="option-card-title">Dashboard</h4>
+                            <p class="option-card-description">
+                                Los ejecutivos pueden crear notas para guardar comentarios o información temporal de forma segura.
+                            </p>
+                        </div>
+                        <div class="option-card-toggle">
+                            <label class="toggle-icon">
+                                <input type="checkbox" id="avisoprivacidad" class="toggle-hidden" checked>
+                                <i class="fi fi-ss-toggle-off icon icon-secondary unchecked text-md"></i>
+                                <i class="fi fi-ss-toggle-on icon icon-secondary checked text-md"></i>
+                            </label>
+                        </div>
+                    </div> 
+                    <div class="option-card mb-2">
+                        <div class="option-card-image">
+                            <img src="/assets/map.gif" alt="Icono" />
+                        </div>
+                        <div class="option-card-content">
+                            <h4 class="option-card-title">Mapa</h4>
+                            <p class="option-card-description">
+                                Los ejecutivos pueden crear notas para guardar comentarios o información temporal de forma segura.
+                            </p>
+                        </div>
+                        <div class="option-card-toggle">
+                            <label class="toggle-icon">
+                                <input type="checkbox" id="avisoprivacidad" class="toggle-hidden" checked>
+                                <i class="fi fi-ss-toggle-off icon icon-secondary unchecked text-md"></i>
+                                <i class="fi fi-ss-toggle-on icon icon-secondary checked text-md"></i>
+                            </label>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalSiete" class="modal-wrapper" data-backdrop="transparent" data-dismiss="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal modal-center modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="text-md">Option cards</h3>
+                    <button class="modal-close" onclick="cerrarModal('modalSiete')">
+                        <i class="fi fi-rs-circle-xmark text-error"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-full">
+                        <thead class="bg-default">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Correo</th>
+                                <th>Rol</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Marco Galindo</td>
+                                <td>marco@example.com</td>
+                                <td>Administrador</td>
+                                <td>Activo</td>
+                            </tr>
+                            <tr>
+                                <td>Ana López</td>
+                                <td>ana@example.com</td>
+                                <td>Editor</td>
+                                <td>Inactivo</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+    <div id="modalOcho" class="modal-wrapper" data-backdrop="transparent" data-dismiss="true">
+        <div class="modal-backdrop"></div>
+        <div class="modal modal-right modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="text-md">Carga tu archivo</h3>
+                    <button class="modal-close" onclick="cerrarModal('modalOcho')">
+                        <i class="fi fi-rs-circle-xmark"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="file-dropzone drag-secondary" id="dropzone">
+                        <div class="file-dropzone-content">
+                          <i class="fi fi-rs-cloud-upload-alt icon icon-xlg"></i>
+                          <p class="text-sm text-gray">Arrastra aquí tus archivos o haz clic para seleccionar</p>
+                          <input type="file" class="file-input" multiple/>
+                        </div>
+                    </div>
+                    <ul class="file-list">
+                        <li class="file-item uploading">
+                            <img src="/assets/pdf.png" alt="PDF" class="file-icon" />
+                            <div class="file-info">
+                                <p class="file-name">Dribbble CV_23/09.pdf</p>
+                                <div class="file-progress-bar  progress-secondary">
+                                <div class="file-progress progress-bar" style="width: 64%"></div>
+                                </div>
+                            </div>
+                            <span class="file-status">64%</span>
+                            <button class="file-remove">
+                                <i class="fi fi-rs-cross-small icon"></i>
+                            </button>
+                        </li>
+                        <li class="file-item uploading">
+                            <img src="/assets/csv.png" alt="CSV" class="file-icon" />
+                            <div class="file-info">
+                                <p class="file-name">Portfolio Template.csv</p>
+                                <div class="file-progress-bar progress-secondary">
+                                <div class="file-progress progress-bar" style="width: 96%"></div>
+                                </div>
+                            </div>
+                            <span class="file-status">96%</span>
+                            <button class="file-remove">
+                                <i class="fi fi-rs-cross-small icon"></i>
+                            </button>
+                        </li>
+                        <li class="file-item completed">
+                            <img src="/assets/txt.png" alt="TXT" class="file-icon" />
+                            <div class="file-info">
+                                <p class="file-name">General Information.txt</p>
+                                <span class="file-size">978 kb</span>
+                            </div>
+                            <span class="file-status icon-success">
+                                <i class="fi fi-ss-check-circle text-secondary icon"></i>
+                            </span>
+                        </li>
+                        <li class="file-item completed">
+                            <img src="/assets/gallery.png" alt="IMG" class="file-icon" />
+                            <div class="file-info">
+                                <p class="file-name">Imagen.png</p>
+                                <span class="file-size">1024 kb</span>
+                            </div>
+                            <span class="file-status icon-success">
+                                <i class="fi fi-ss-check-circle text-secondary icon"></i>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="p-2">
+        <button onclick="abrirModal('modalUno')" class="btn btn-primary">Modal basico</button>
+        <button onclick="abrirModal('modalDos')" class="btn btn-primary">Modal izquierda</button>
+        <button onclick="abrirModal('modalTres')" class="btn btn-primary">Modal derecha</button>
+        <button onclick="abrirModal('modalCuatro')" class="btn btn-primary">Modal fullscreen</button>
+        <button onclick="abrirModal('modalSeis')" class="btn btn-primary">Modal con option cards</button>
+        <button onclick="abrirModal('modalSiete')" class="btn btn-primary">Modal con tabla</button>
+        <button onclick="abrirModal('modalOcho')" class="btn btn-primary">Modal con drag and drop</button>
     </div>
     <script src="/scripts/index.js"></script>
 </body>
