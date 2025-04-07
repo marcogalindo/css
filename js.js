@@ -1,9 +1,21 @@
 window.onDropdownSelect = null;
 
+document.addEventListener('DOMContentLoaded', () => {
+  const listaNotificaciones = document.querySelector('.notification-list');
+
+  Sortable.create(listaNotificaciones, {
+    animation: 150,
+    ghostClass: 'notification-ghost', // clase para el elemento "fantasma" mientras se arrastra
+    dragClass: 'notification-drag',   // clase opcional para aplicar mientras se arrastra
+  });
+});
+
 document.addEventListener('click', e => {
   const toggleBtn = e.target.closest('.dropdown-toggle');
   const btnNumero = e.target.closest('[data-action]');
   const actionToggle = e.target.closest('.actions-dropdown > i');
+  const clickedTab = e.target.closest('.nav-tab');
+  const sidebarBtn = e.target.closest('.sidebar-icon');
 
   // === Abrir/Cerrar dropdown principal ===
   if (toggleBtn) {
@@ -124,6 +136,48 @@ document.addEventListener('click', e => {
     const snackbar = e.target.closest('.snackbar');
     snackbar.classList.remove('show');
     return;
+  }
+
+  // === LOGICA NAV TABS ===
+  if (clickedTab) {
+    const allTabs = document.querySelectorAll('.nav-tab');
+    const allContents = document.querySelectorAll('.tab-content');
+  
+    allTabs.forEach(tab => tab.classList.remove('active'));
+    allContents.forEach(content => content.classList.add('hidden'));
+  
+    clickedTab.classList.add('active');
+  
+    const tabId = clickedTab.getAttribute('data-tab');
+    const content = document.getElementById(`tab-${tabId}`);
+    if (content) content.classList.remove('hidden');
+  }
+
+  // === LOGICA SIDEBAR ===
+  if (sidebarBtn && sidebarBtn.querySelector('i')) {
+    const iconClass = Array.from(sidebarBtn.querySelector('i').classList).find(c => c.startsWith('fi-'));
+    if (!iconClass) return;
+
+    // Mapeo íconos a secciones
+    const map = {
+      'fi-ss-home': 'view-home',
+      'fi-ss-user': 'view-user',
+      'fi-ss-settings': 'view-settings',
+    };
+
+    const targetId = map[iconClass];
+    if (!targetId) return;
+
+    // Oculta todas las vistas
+    document.querySelectorAll('.sidebar-view').forEach(view => view.classList.add('hidden'));
+
+    // Muestra la vista correspondiente
+    const targetView = document.getElementById(targetId);
+    if (targetView) targetView.classList.remove('hidden');
+
+    // Marca el ícono como activo
+    document.querySelectorAll('.sidebar-icon').forEach(btn => btn.classList.remove('active'));
+    sidebarBtn.classList.add('active');
   }
 
   // === Cerrar dropdowns al hacer clic fuera ===
