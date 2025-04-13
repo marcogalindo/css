@@ -2,11 +2,27 @@ window.onDropdownSelect = null;
 
 document.addEventListener('DOMContentLoaded', () => {
   const listaNotificaciones = document.querySelector('.notification-list');
+  const sidebar = document.querySelector(".layout-sidebar.expandable");
+  
+  if (!sidebar) return;
+
+  const sidebarElement = sidebar.querySelector(".layout-sidebar__sidebar");
+  const iconButtons = sidebar.querySelectorAll(".sidebar-icon");
 
   Sortable.create(listaNotificaciones, {
     animation: 150,
     ghostClass: 'notification-ghost', // clase para el elemento "fantasma" mientras se arrastra
     dragClass: 'notification-drag',   // clase opcional para aplicar mientras se arrastra
+  });
+
+  sidebarElement.addEventListener("mouseenter", () => {
+    sidebar.classList.add("layout-sidebar--expanded");
+    iconButtons.forEach(btn => btn.classList.add("sidebar-icon--expanded"));
+  });
+
+  sidebarElement.addEventListener("mouseleave", () => {
+    sidebar.classList.remove("layout-sidebar--expanded");
+    iconButtons.forEach(btn => btn.classList.remove("sidebar-icon--expanded"));
   });
 });
 
