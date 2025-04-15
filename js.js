@@ -330,8 +330,10 @@ function obtenerValorCampo(id) {
   return input ? input.value : null;
 }
 
-function mostrarSnackbar(id, tiempo = 3000) {
+function mostrarSnackbar(id, message, tiempo = 3000) {
     const snackbar = document.getElementById(id);
+    const snackbarMessage = document.querySelector(".snackbarMessage");
+    snackbarMessage.innerHTML = message;
     snackbar.classList.add('show');
   
     setTimeout(() => {
