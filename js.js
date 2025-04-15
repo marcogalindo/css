@@ -331,6 +331,7 @@ function obtenerValorCampo(id) {
 }
 
 function mostrarSnackbar(id, message, tiempo = 3000) {
+    console.log("HOLA");
     const snackbar = document.getElementById(id);
     const snackbarMessage = document.querySelector(".snackbarMessage");
     snackbarMessage.innerHTML = message;
