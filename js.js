@@ -187,6 +187,7 @@ document.addEventListener('click', e => {
     if (!targetId) return;
 
     // Oculta todas las vistas
+    console.log("OCULTANDO LAS VISTAS");
     document.querySelectorAll('.sidebar-view').forEach(view => view.classList.add('hidden'));
 
     // Muestra la vista correspondiente
