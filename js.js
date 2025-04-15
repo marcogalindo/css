@@ -179,6 +179,8 @@ document.addEventListener('click', e => {
       'fi-ss-home': 'view-home',
       'fi-ss-user': 'view-user',
       'fi-ss-settings': 'view-settings',
+      'fi-ss-dashboard': 'view-dashboard',
+      'fi-ss-plan-strategy': 'view-estrategias'
     };
 
     const targetId = map[iconClass];
